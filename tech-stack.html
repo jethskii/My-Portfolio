@@ -8,28 +8,30 @@
   <title>Tech Stack • Jethro K. Mandalones</title>
 
   <!-- SEO -->
-  <link rel="canonical" href="./tech-stack" />
+  <link rel="canonical" href="tech-stack.html" />
   <meta name="description" content="Laravel-first tech stack: PHP, Blade, MySQL, Tailwind CSS, Vite, Git, and ecosystem tools I use to build modern, maintainable web apps." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Tech Stack • Jethro K. Mandalones" />
   <meta property="og:description" content="Laravel-first tech stack: PHP, Blade, MySQL, Tailwind CSS, Vite, Git, and ecosystem tools I use to build modern, maintainable web apps." />
-  <meta property="og:url" content="./tech-stack" />
-  <meta property="og:image" content="assets/og-cover.jpg" />
+  <meta property="og:url" content="tech-stack.html" />
+  <meta property="og:image" content="public/images/bg-fallback.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="preload" as="image" href="assets/bg-fallback.jpg" />
-  <link rel="preload" as="font" href="assets/instrument-sans-latin-var.woff2" type="font/woff2" crossorigin />
+  <!-- Icons & Preloads -->
+  <link rel="icon" type="image/png" href="public/images/favicon.png" />
+  <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="public/images/bg-fallback.jpg" />
+  <!-- If you actually have a custom font, keep this. Otherwise remove. -->
+  <!-- <link rel="preload" as="font" href="public/fonts/instrument-sans-latin-var.woff2" type="font/woff2" crossorigin /> -->
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Styles (correct path) -->
+  <link rel="stylesheet" href="public/styles.css" />
 </head>
 
 <body class="page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Background -->
-   <!-- ===== Background ===== -->
+  <!-- ===== Background ===== -->
   <div class="bg-wrap" aria-hidden="true">
     <video
       class="bg-video"
@@ -38,35 +40,33 @@
       loop
       playsinline
       preload="auto"
-      poster="/images/bg-fallback.jpg">
-      <source src="/videos/nebula-mesh.mp4" type="video/mp4" />
+      poster="public/images/bg-fallback.jpg">
+      <source src="public/videos/nebula-mesh.mp4" type="video/mp4" />
     </video>
     <canvas id="bgParticles" class="bg-canvas"></canvas>
     <div class="bg-overlay"></div>
     <noscript>
       <style>
         .bg-video{display:none}
-        .bg-wrap{background:url('/images/bg-fallback.jpg') center/cover no-repeat fixed;}
+        .bg-wrap{background:url('public/images/bg-fallback.jpg') center/cover no-repeat fixed;}
       </style>
-      
     </noscript>
   </div>
-  
 
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header__row">
-      <a class="brand" href="./">JETHRO <span class="brand__dim">MANDALONES</span></a>
+      <a class="brand" href="index.html">JETHRO <span class="brand__dim">MANDALONES</span></a>
 
       <button id="menu-btn" class="chip chip--ghost header__menu-btn" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle menu">Menu</button>
 
       <nav aria-label="Primary">
         <ul id="main-menu" class="nav">
-          <li><a class="nav__link" href="./">Home</a></li>
-          <li><a class="nav__link" href="./about">About</a></li>
-          <li><a class="nav__link nav__link--active" aria-current="page" href="./tech-stack">Tech Stack</a></li>
-          <li><a class="nav__link" href="./portfolio">Portfolio</a></li>
-          <li><a class="nav__link" href="./contact">Contact</a></li>
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="about-read-more.html">About</a></li>
+          <li><a class="nav__link nav__link--active" aria-current="page" href="tech-stack.html">Tech Stack</a></li>
+          <li><a class="nav__link" href="portfolio.html">Portfolio</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -573,7 +573,7 @@
           <p class="stats__label">Ecosystem Areas Learning</p>
         </div>
         <div class="stats__item">
-          <h3 class="stats__num stats__num--mono">-3.823869263789+</h3>
+          <h3 class="stats__num stats__num--mono">3+</h3>
           <p class="stats__label">Years with Laravel/PHP</p>
         </div>
       </section>
@@ -585,10 +585,41 @@
   <!-- Global footer -->
   <footer class="site-footer">© 2025 Jethro Mandalones. All rights reserved.</footer>
 
-  <!-- Scripts -->
-  <script src="app.js" defer></script>
+  <!-- Scripts (inline: no 404s) -->
+  <script>
+    // Simple mobile menu toggle
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('main-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('nav--open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    // Optional tiny particles (matches your other pages)
+    (function () {
+      const canvas = document.getElementById('bgParticles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, pts = [], raf;
+      function resize(){
+        w = canvas.width = innerWidth; h = canvas.height = innerHeight;
+        const count = Math.min(120, Math.floor((w*h)/16000));
+        pts = Array.from({length:count}, ()=>({ x: Math.random()*w, y: Math.random()*h,
+          vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22, r:Math.random()*1.35+.35, a:Math.random()*.5+.35 }));
+      }
+      function step(){
+        ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='lighter';
+        for(const p of pts){
+          p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1;
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(34,211,238,${p.a})`; ctx.fill();
+        }
+        raf=requestAnimationFrame(step);
+      }
+      addEventListener('resize', resize);
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ resize(); step(); }
+    })();
+  </script>
 </body>
 </html>
-<style>
-    
-</style>
