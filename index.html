@@ -42,7 +42,7 @@
       border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter:blur(10px);
     }
     .header-inner{ max-width:1180px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; min-height:60px; }
-    .brand{ font-weight:800; letter-spacing:.08em; color:#6ff3e6; font-size:20px; }
+    .brand{ font-weight:800; letter-spacing:.08em; color:#6ff3e6; font-size:20px; text-decoration:none; }
     .nav{ display:flex; gap:.5rem; }
     .nav a{ color:#e7fffd; text-decoration:none; font-weight:700; font-size:.92rem; padding:.5rem .9rem; border-radius:9999px; border:1px solid transparent; }
     .nav a:hover{ background:rgba(255,255,255,.06) }
@@ -108,12 +108,13 @@
   <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="/about.html">JETHRO MANDALONES</a>
+      <a class="brand" href="index.html">JETHRO MANDALONES</a>
+      <!-- Updated nav using direct file links -->
       <nav class="nav" aria-label="Primary">
-        <a href="/index.html">Home</a>
-        <a href="/about.html" class="active" aria-current="page">About</a>
-        <a href="/tech-stack.html">Tech Stack</a>
-        <a href="/contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about-read-more.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="tech-stack.html">Tech Stack</a>
       </nav>
     </div>
   </header>
@@ -160,9 +161,9 @@
           leadership, and innovation.
         </p>
         <div class="btn-row">
-          <a class="btn primary" href="/about-read-more.html">Read More</a>
-          <a class="btn" href="/tech-stack.html">Tech Stack</a>
-          <a class="btn" href="/contact.html">Contact Me</a>
+          <a class="btn primary" href="about-read-more.html">Read More</a>
+          <a class="btn" href="tech-stack.html">Tech Stack</a>
+          <a class="btn" href="contact.html">Contact Me</a>
         </div>
         <div class="chip-row">
           <a class="chip" href="https://www.facebook.com/jethjeth.mandalones" target="_blank" rel="noopener">Facebook</a>
@@ -297,6 +298,19 @@
       }
       addEventListener('resize', resize);
       if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ resize(); step(); }
+    })();
+
+    // Auto-mark the active nav link based on current file name
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      const links = document.querySelectorAll('.nav a');
+      links.forEach(a => {
+        const target = a.getAttribute('href');
+        if (target === here) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+        }
+      });
     })();
   </script>
 </body>
