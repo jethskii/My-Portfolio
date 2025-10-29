@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact • Jethro K. Mandalones | Portfolio</title>
 
+  <!-- Favicons (optional but nice to have) -->
+  <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="public/images/favicon.png" sizes="32x32">
+  <link rel="canonical" href="contact.html" />
+
   <!-- ============ PURE CSS (no Tailwind) ============ -->
   <style>
     :root{
@@ -17,7 +22,6 @@
       --white: #ffffff;
     }
 
-    /* Base reset-ish */
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body{
@@ -30,9 +34,7 @@
     ::selection { background: rgba(20,184,166,.3); color: #fff; }
 
     /* Background video (fixed, behind everything) */
-    .bg-video{
-      position: fixed; inset: 0; z-index: -1; overflow: hidden;
-    }
+    .bg-video{ position: fixed; inset: 0; z-index: -1; overflow: hidden; }
     .bg-video video{
       position: absolute; inset: 0;
       width: 100%; height: 100%;
@@ -40,7 +42,6 @@
       filter: saturate(1.05) contrast(1.05) brightness(.9);
     }
 
-    /* Utility layout */
     .container { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
     @media (min-width: 640px){ .container { padding-inline: 1.5rem; } }
     @media (min-width: 1024px){ .container { padding-inline: 2rem; } }
@@ -58,7 +59,6 @@
     .space-y-4 > * + * { margin-top:1rem; }
     .space-y-8 > * + * { margin-top:2rem; }
 
-    /* Responsive show/hide (md=768, lg=1024) */
     @media (min-width:768px){
       .md-hidden { display:none !important; }
       .md-flex { display:flex !important; }
@@ -72,7 +72,6 @@
       .lg-grid { display:grid; grid-template-columns: 2fr 1fr; gap:2rem; }
     }
 
-    /* Spacing helpers */
     .px-3 { padding-inline:.75rem; }
     .py-2 { padding-block:.5rem; }
     .px-4 { padding-inline:1rem; }
@@ -85,7 +84,6 @@
     .p-8 { padding:2rem; }
     .p-10 { padding:2.5rem; }
 
-    /* Typography */
     .text-xs { font-size:.75rem; line-height:1rem; }
     .text-sm { font-size:.875rem; line-height:1.25rem; }
     .text-base { font-size:1rem; line-height:1.5rem; }
@@ -105,11 +103,9 @@
     .text-teal-100-60 { color: rgba(202,255,252,.6); }
     .text-teal-100 { color: #d9fffd; }
 
-    /* Links */
     a { color: inherit; text-decoration: none; }
     .link { text-decoration: underline; text-underline-offset:3px; }
 
-    /* Glass panel + neon */
     .glass{
       background: linear-gradient(180deg, rgba(15,58,59,.80), rgba(15,58,59,.55));
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -120,7 +116,6 @@
       text-shadow:0 0 18px rgba(14,165,164,.55), 0 0 38px rgba(14,165,164,.35);
     }
 
-    /* Header */
     .site-header { position: sticky; top:0; z-index:50; }
     .site-logo { color:#99f6e4; }
     .nav-link{
@@ -132,12 +127,8 @@
       background: rgba(255,255,255,.10); color: var(--teal-200);
     }
 
-    .divider{
-      height:1px; width:100%;
-      background: linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
-    }
+    .divider{ height:1px; width:100%; background: linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent); }
 
-    /* Chips */
     .chip{
       display:inline-flex; align-items:center; justify-content:center;
       background:rgba(255,255,255,.06);
@@ -146,7 +137,6 @@
     }
     .chip-xs{ font-size:10px; }
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; gap:.5rem;
       padding:.8rem 1.25rem; border-radius:9999px; font-weight:700;
@@ -164,7 +154,6 @@
       background:rgba(14,165,164,.12); color:#eaffff; box-shadow:0 10px 20px rgba(14,165,164,.18);
     }
 
-    /* Form fields */
     .field { position:relative; }
     .field input, .field textarea, .field select{
       width:100%;
@@ -190,11 +179,9 @@
     }
     .error{ color:#ffb4b4; font-size:.8rem; }
 
-    /* Grid for form + aside */
     .grid-gap-8 { display:grid; gap:2rem; }
     @media (min-width:1024px){ .grid-gap-8 { grid-template-columns: 2fr 1fr; } }
 
-    /* FAQ details */
     details { border-color: transparent; }
     details[open] summary .chip-toggle-open { display:none; }
     details:not([open]) summary .chip-toggle-close { display:none; }
@@ -203,7 +190,6 @@
     .divide-y { border-top:1px solid rgba(255,255,255,.06); }
     .divide-y > details { border-bottom:1px solid rgba(255,255,255,.06); }
 
-    /* Toast */
     .success-toast{
       position:fixed; right:16px; top:16px; z-index:60;
       background:linear-gradient(180deg, rgba(12, 88, 88,.92), rgba(9,64,64,.92));
@@ -212,13 +198,11 @@
       font-size:.9rem;
     }
 
-    /* Helpers for margins */
     .mt-2{ margin-top:.5rem; }
     .mt-3{ margin-top:.75rem; }
     .mt-4{ margin-top:1rem; }
     .mt-8{ margin-top:2rem; }
 
-    /* Headings */
     .h1{
       margin:0;
       font-weight:800;
@@ -226,10 +210,8 @@
       line-height:1.1;
     }
 
-    /* Footer text */
     .tiny { font-size:.75rem; color: rgba(202,255,252,.6); text-align:center; }
 
-    /* Rounding for small screens on nav links */
     .rounded-full { border-radius:9999px; }
     .rounded-lg { border-radius:.75rem; }
   </style>
@@ -239,8 +221,8 @@
 
   <!-- Background video (fixed behind content) -->
   <div class="bg-video" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto" poster="./images/bg-fallback.jpg">
-      <source src="./videos/nebula-mesh.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline preload="auto" poster="public/images/bg-fallback.jpg">
+      <source src="public/videos/nebula-mesh.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -249,16 +231,17 @@
     <nav class="glass">
       <div class="container">
         <div class="flex items-center justify-between" style="height:64px;">
-          <a href="./index.html" class="flex items-center gap-2" aria-label="Go to Home">
+          <a href="index.html" class="flex items-center gap-2" aria-label="Go to Home">
             <span class="site-logo tracking-wider font-extrabold text-xl">JETHRO <span style="opacity:.8">MANDALONES</span></span>
             <span class="hidden md-flex text-xs chip">Software Developer • Graphic Designer</span>
           </a>
           <div class="md-flex items-center gap-2">
-            <a href="./index.html" class="nav-link rounded-full">Home</a>
-            <a href="./about.html" class="nav-link rounded-full">About</a>
-            <a href="./contact.html" class="nav-link nav-link--active rounded-full">Contact</a>
+            <a href="index.html" class="nav-link rounded-full">Home</a>
+            <a href="about.html" class="nav-link rounded-full">About</a>
+            <a href="tech-stack.html" class="nav-link rounded-full">Tech Stack</a>
+            <a href="contact.html" class="nav-link nav-link--active rounded-full" aria-current="page">Contact</a>
           </div>
-          <a href="./about.html" class="md-hidden px-3 py-2 rounded-lg nav-link" style="display:inline-block;">Back</a>
+          <a href="about.html" class="md-hidden px-3 py-2 rounded-lg nav-link" style="display:inline-block;">Back</a>
         </div>
       </div>
     </nav>
@@ -290,7 +273,7 @@
             Just send your name and email, and I’ll reach out personally to get started.
           </p>
 
-          <form class="mt-8" action="./contact.html" method="POST" novalidate>
+          <form class="mt-8" action="contact.html" method="POST" novalidate>
             <!-- Name / Email -->
             <div class="grid-gap-8" style="grid-template-columns: 1fr; gap:1rem;">
               <div class="field">
@@ -425,11 +408,8 @@
   <script>
     function copyToClipboard(text){
       if (!navigator.clipboard) {
-        // Fallback
         const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
+        ta.value = text; document.body.appendChild(ta); ta.select();
         try { document.execCommand('copy'); } catch(e){}
         document.body.removeChild(ta);
         showToast('Copied');
@@ -446,25 +426,20 @@
       setTimeout(()=> el.remove(), 1500);
     }
 
-    // Optional: prevent default submit (since no backend here) but keep the exact UI feel.
+    // Prevent real submit (no backend) but keep UX
     document.getElementById('sendBtn')?.closest('form')?.addEventListener('submit', function(e){
       e.preventDefault();
       showToast('Message sent');
       this.reset();
     });
 
-    // Responsive tweaks: match original two-column behavior at >= 640px for input rows
+    // Make first two form rows 2-col at >=640px
     function applyResponsiveGrids(){
       const grids = document.querySelectorAll('.grid-gap-8');
       grids.forEach((g, i)=>{
-        // First two grid rows in form should become 2 columns on >=640px
-        const isFormRow = (i === 1 || i === 2); // after main container, first is top grid
+        const isFormRow = (i === 1 || i === 2);
         if (isFormRow){
-          if (window.innerWidth >= 640){
-            g.style.gridTemplateColumns = '1fr 1fr';
-          } else {
-            g.style.gridTemplateColumns = '1fr';
-          }
+          g.style.gridTemplateColumns = (window.innerWidth >= 640) ? '1fr 1fr' : '1fr';
         }
       });
     }
