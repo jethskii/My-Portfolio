@@ -1,5 +1,11 @@
-<meta name="theme-color" content="#0c2c2d" />
-<title>Tech Stack • Jethro K. Mandalones</title>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c2c2d" />
+  <title>Tech Stack • Jethro K. Mandalones</title>
 
   <!-- SEO -->
   <link rel="canonical" href="./tech-stack" />
@@ -15,20 +21,18 @@
   <link rel="preload" as="image" href="assets/bg-fallback.jpg" />
   <link rel="preload" as="font" href="assets/instrument-sans-latin-var.woff2" type="font/woff2" crossorigin />
 
-  <!-- Single-file styles (merged) -->
-<style>
+  <style>
   /* ====== TECH STACK CSS====== */
 
   /* ====== Base / Reset ====== */
   :root{
-  :root {
---ink:#071a1b;
---panel:rgba(7,28,29,.72);
+    --ink:#071a1b;
+    --panel:rgba(7,28,29,.72);
     --teal-50:#ecfeff;
---teal-100:#ccfbf1;
---teal-200:#99f6e4;
---teal-300:#5eead4;
---teal-400:#2dd4bf;
+    --teal-100:#ccfbf1;
+    --teal-200:#99f6e4;
+    --teal-300:#5eead4;
+    --teal-400:#2dd4bf;
     --teal-500:#14b8a6;
     --cyan:#22d3ee;
     --white: #ffffff;
@@ -40,20 +44,15 @@
     --amber-300:#fcd34d;
     --amber-500:#f59e0b;
     --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.4);
-    --white:#fff;
-    --glass-top:rgba(15,58,59,.78);
-    --glass-bot:rgba(15,58,59,.52);
-    --ring:rgba(45,212,191,.45);
-}
+  }
 
-*{box-sizing:border-box}
+  *{box-sizing:border-box}
   html,body{height:100%}
   html:focus-within{scroll-behavior:smooth}
-  html,body{height:100%;margin:0;padding:0}
-body.page{
+  body.page{
     margin:0;
-background:var(--ink);
-color:var(--white);
+    background:var(--ink);
+    color:var(--white);
     font-family:"Instrument Sans",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
     -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   }
@@ -100,15 +99,7 @@ color:var(--white);
     border-bottom:1px solid rgba(255,255,255,.1);
   }
   .header__row{height:64px;display:flex;align-items:center;justify-content:space-between}
-    font-family:"Instrument Sans",system-ui,sans-serif;
-  }
-  .bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none}
-  .bg-video,.bg-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .bg-overlay{position:absolute;inset:0;background:radial-gradient(1200px 800px at 10% 0%, #0f3f40 0%, #0b2e2f 45%, #082123 100%);opacity:.85}
-  .site-header,main{position:relative;z-index:1}
-  .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,33,35,.7);border-bottom:1px solid rgba(255,255,255,.1)}
-  .header__row{height:64px;display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:auto;padding:0 1rem}
-.brand{font-weight:800;letter-spacing:.18em;color:var(--teal-300)}
+  .brand{font-weight:800;letter-spacing:.18em;color:var(--teal-300)}
   .brand__dim{opacity:.8}
   .brand:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring);border-radius:.4rem}
 
@@ -120,11 +111,9 @@ color:var(--white);
     transition:background .2s ease,color .2s ease,transform .12s ease;
     outline:none;
   }
-  .nav{display:flex;gap:.5rem;list-style:none;margin:0;padding:0}
-  .nav__link{padding:.5rem .9rem;border-radius:9999px;color:var(--teal-100);transition:background .2s}
-.nav__link:hover{background:rgba(255,255,255,.06)}
+  .nav__link:hover{background:rgba(255,255,255,.06)}
   .nav__link:focus-visible{box-shadow:0 0 0 3px var(--ring)}
-.nav__link--active{background:rgba(255,255,255,.1);color:var(--teal-200)}
+  .nav__link--active{background:rgba(255,255,255,.1);color:var(--teal-200)}
 
   @media (max-width: 768px){
     .header__menu-btn{display:inline-flex}
@@ -162,19 +151,9 @@ color:var(--white);
   .card__title{margin:0;color:var(--teal-200);font-size:1.25rem;font-weight:800}
   .card__eyebrow{margin:.35rem 0 0;color:color-mix(in oklab,var(--teal-100) 80%, white);font-size:.875rem}
   .card__body{margin:.8rem 0 0;color:color-mix(in oklab,var(--teal-100) 90%, white);font-size:.95rem;line-height:1.45}
-  .container{max-width:1120px;margin:auto;padding:0 1rem}
-  .section-head{text-align:center;padding-top:2rem}
-  .section-head h1{font-size:2.5rem;font-weight:900;color:var(--teal-200);text-shadow:0 0 18px rgba(34,211,238,.55)}
-  .section-sub{color:rgba(204,251,241,.85)}
-  .grid{display:grid;gap:1.5rem;margin-top:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .card{background:linear-gradient(180deg,var(--glass-top),var(--glass-bot));border:1px solid rgba(255,255,255,.09);border-radius:1.25rem;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;min-height:190px;transition:transform .2s ease}
-  .card:hover{transform:translateY(-2px)}
-  .card__title{margin:0;font-size:1.25rem;font-weight:800;color:var(--teal-200)}
-  .card__eyebrow{margin:.35rem 0 0;color:rgba(204,251,241,.8)}
-  .card__body{margin:.8rem 0 0;color:rgba(204,251,241,.9)}
-.card__foot{margin-top:1rem;display:flex;align-items:center;justify-content:space-between;color:rgba(204,251,241,.75);font-size:.8rem}
-.dot{width:.5rem;height:.5rem;border-radius:9999px;background:var(--teal-400);animation:pulse 1.4s infinite}
-@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+  .card__foot{margin-top:1rem;display:flex;align-items:center;justify-content:space-between;color:rgba(204,251,241,.75);font-size:.8rem}
+  .dot{width:.5rem;height:.5rem;border-radius:9999px;background:var(--teal-400);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
 
   /* pointer glow on move */
   .glass{background:
@@ -251,19 +230,16 @@ color:var(--white);
 
   /* ====== Utilities ====== */
   .header__menu-btn{cursor:pointer}
+
   /* ====== TECH STACK CSS END ====== */
-  .stats{margin-top:2rem;padding:1.25rem;border-radius:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;text-align:center;background:rgba(15,58,59,.6)}
-  .stats__num{font-size:2rem;font-weight:900;color:var(--teal-200)}
-  .stats__label{color:rgba(204,251,241,.8)}
-  .site-footer{text-align:center;padding:1rem;font-size:.8rem;color:rgba(204,251,241,.6);border-top:1px solid rgba(255,255,255,.1);background:rgba(8,33,35,.6);backdrop-filter:blur(8px)}
-</style>
+  </style>
 </head>
 
 <body class="page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Background -->
-<div class="bg-wrap" aria-hidden="true">
+  <div class="bg-wrap" aria-hidden="true">
     <video
       class="bg-video"
       autoplay
@@ -273,85 +249,69 @@ color:var(--white);
       preload="auto"
       poster="assets/bg-fallback.jpg">
       <source src="/videos/nebula-mesh.mp4" type="video/mp4" />
-    <video class="bg-video" autoplay muted loop playsinline poster="assets/bg-fallback.jpg">
-      <source src="assets/nebula-mesh.mp4" type="video/mp4" />
-</video>
-<canvas id="bgParticles" class="bg-canvas"></canvas>
-<div class="bg-overlay"></div>
+    </video>
+    <canvas id="bgParticles" class="bg-canvas"></canvas>
+    <div class="bg-overlay"></div>
     <noscript>
       <style>
         .bg-video{display:none}
         .bg-wrap{background:url('assets/bg-fallback.jpg') center/cover no-repeat fixed;}
       </style>
     </noscript>
-</div>
+  </div>
 
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header__row">
-  <header class="site-header">
-    <div class="header__row">
-<a class="brand" href="./">JETHRO <span class="brand__dim">MANDALONES</span></a>
+      <a class="brand" href="./">JETHRO <span class="brand__dim">MANDALONES</span></a>
 
       <button id="menu-btn" class="chip chip--ghost header__menu-btn" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle menu">Menu</button>
 
       <nav aria-label="Primary">
         <ul id="main-menu" class="nav">
-      <nav>
-        <ul class="nav">
-<li><a class="nav__link" href="./">Home</a></li>
+          <li><a class="nav__link" href="./">Home</a></li>
           <li><a class="nav__link" href="./about">About</a></li>
           <li><a class="nav__link nav__link--active" aria-current="page" href="./tech-stack">Tech Stack</a></li>
-          <li><a class="nav__link nav__link--active" href="./tech-stack">Tech Stack</a></li>
-<li><a class="nav__link" href="./portfolio">Portfolio</a></li>
+          <li><a class="nav__link" href="./portfolio">Portfolio</a></li>
           <li><a class="nav__link" href="./contact">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main -->
   <main id="main-content" class="main" role="main">
     <div class="container stack">
       <!-- Core Stack -->
-  <main class="main">
-    <div class="container">
-<header class="section-head">
+      <header class="section-head">
         <h1 class="neon">⭐ Core Laravel Stack</h1>
-        <h1>⭐ Core Laravel Stack</h1>
-<p class="section-sub">Tools I use to build reliable, scalable, and clean Laravel applications</p>
-</header>
+        <p class="section-sub">Tools I use to build reliable, scalable, and clean Laravel applications</p>
+      </header>
 
       <section class="grid" aria-label="Core Laravel stack">
         <!-- Card -->
         <article class="card glass" role="article">
-      <section class="grid">
-        <article class="card">
-<div>
+          <div>
             <div class="card__top">
               <h3 class="card__title">Laravel</h3>
               <span class="chip">Proficient</span>
             </div>
-            <h3 class="card__title">Laravel</h3>
-<p class="card__eyebrow">PHP Framework</p>
-<p class="card__body">Clean MVC, routing, controllers, requests, policies, events, queues.</p>
-</div>
-<div class="card__foot">
+            <p class="card__eyebrow">PHP Framework</p>
+            <p class="card__body">Clean MVC, routing, controllers, requests, policies, events, queues.</p>
+          </div>
+          <div class="card__foot">
             <span>Experience: 2+ years</span>
             <span class="dot" aria-hidden="true"></span>
-            <span>Experience: 2+ years</span><span class="dot"></span>
-</div>
-</article>
+          </div>
+        </article>
 
         <article class="card glass">
-        <article class="card">
-<div>
+          <div>
             <div class="card__top">
               <h3 class="card__title">PHP</h3>
               <span class="chip">Proficient</span>
             </div>
-            <h3 class="card__title">PHP</h3>
-<p class="card__eyebrow">Language</p>
+            <p class="card__eyebrow">Language</p>
             <p class="card__body">Backend logic, service classes, jobs, artisan commands, strong typing.</p>
           </div>
           <div class="card__foot">
@@ -368,18 +328,15 @@ color:var(--white);
             </div>
             <p class="card__eyebrow">Templating</p>
             <p class="card__body">Components, slots, layouts, partials for reusable UI at speed.</p>
-            <p class="card__body">Backend logic, service classes, artisan commands, and strong typing.</p>
-</div>
-<div class="card__foot">
+          </div>
+          <div class="card__foot">
             <span>Experience: 2+ years</span>
             <span class="dot" aria-hidden="true"></span>
-            <span>Experience: 2+ years</span><span class="dot"></span>
-</div>
-</article>
+          </div>
+        </article>
 
         <article class="card glass">
-        <article class="card">
-<div>
+          <div>
             <div class="card__top">
               <h3 class="card__title">MySQL</h3>
               <span class="chip">Proficient</span>
@@ -399,11 +356,10 @@ color:var(--white);
               <h3 class="card__title">Tailwind CSS</h3>
               <span class="chip chip--accent">Advanced</span>
             </div>
-            <h3 class="card__title">Tailwind CSS</h3>
-<p class="card__eyebrow">Styling</p>
-<p class="card__body">Utility-first responsive UI with consistent tokens and theming.</p>
-</div>
-<div class="card__foot">
+            <p class="card__eyebrow">Styling</p>
+            <p class="card__body">Utility-first responsive UI with consistent tokens and theming.</p>
+          </div>
+          <div class="card__foot">
             <span>Experience: 2+ years</span>
             <span class="dot" aria-hidden="true"></span>
           </div>
@@ -466,10 +422,9 @@ color:var(--white);
           <div class="card__foot">
             <span>Experience: 3+ years</span>
             <span class="dot" aria-hidden="true"></span>
-            <span>Experience: 2+ years</span><span class="dot"></span>
-</div>
-</article>
-</section>
+          </div>
+        </article>
+      </section>
 
       <!-- Laravel Ecosystem -->
       <section class="section">
@@ -817,67 +772,142 @@ color:var(--white);
       <!-- Stats -->
       <section class="stats glass" aria-label="Stats">
         <div class="stats__item">
-      <section class="stats">
-        <div>
-<h3 class="stats__num">15+</h3>
+          <h3 class="stats__num">15+</h3>
           <p class="stats__label">Laravel &amp; Ecosystem Tools</p>
-          <p class="stats__label">Laravel & Ecosystem Tools</p>
-</div>
+        </div>
         <div class="stats__item">
-        <div>
-<h3 class="stats__num">6</h3>
+          <h3 class="stats__num">6</h3>
           <p class="stats__label">Ecosystem Areas Learning</p>
-          <p class="stats__label">Areas Learning</p>
-</div>
+        </div>
         <div class="stats__item">
-          <h3 class="stats__num stats__num--mono">2+</h3>
-        <div>
-          <h3 class="stats__num">2+</h3>
-<p class="stats__label">Years with Laravel/PHP</p>
-</div>
-</section>
+          <h3 class="stats__num stats__num--mono">3+</h3>
+          <p class="stats__label">Years with Laravel/PHP</p>
+        </div>
+      </section>
 
       <footer class="legal">© 2025 Jethro Mandalones</footer>
-</div>
-</main>
+    </div>
+  </main>
 
   <!-- Global footer -->
-<footer class="site-footer">© 2025 Jethro Mandalones. All rights reserved.</footer>
+  <footer class="site-footer">© 2025 Jethro Mandalones. All rights reserved.</footer>
 
-  <!-- Minimal inline scripts to keep the single-file working -->
+  <!-- Inline Scripts (formerly app.js) -->
   <script>
-    // Mobile nav toggle
+  (function(){
+    // Respect reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Mobile menu toggle with ARIA
     const menuBtn = document.getElementById('menu-btn');
-    const mainMenu = document.getElementById('main-menu');
-    if (menuBtn && mainMenu) {
-      menuBtn.addEventListener('click', () => {
-        const open = mainMenu.classList.toggle('is-open');
+    const nav = document.getElementById('main-menu');
+    if(menuBtn && nav){
+      menuBtn.addEventListener('click', ()=>{
+        const open = nav.classList.toggle('is-open');
         menuBtn.setAttribute('aria-expanded', String(open));
+      });
+      // Close on escape
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && nav.classList.contains('is-open')){
+          nav.classList.remove('is-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menuBtn.focus();
+        }
       });
     }
 
-    // Pointer glow for .glass cards
+    // Glass pointer glow
     const cards = document.querySelectorAll('.glass');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width) * 100;
-        const y = ((e.clientY - r.top) / r.height) * 100;
-        card.style.setProperty('--mx', x + '%');
-        card.style.setProperty('--my', y + '%');
-        card.removeAttribute('data-reset');
-      });
-      card.addEventListener('mouseleave', () => {
-        card.setAttribute('data-reset', '');
+    cards.forEach(card=>{
+      let rafId = null;
+      const onMove = (e)=>{
+        if (prefersReduced) return;
+        const rect = card.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) / rect.width * 100;
+        const my = (e.clientY - rect.top) / rect.height * 100;
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(()=>{
+          card.style.setProperty('--mx', mx + '%');
+          card.style.setProperty('--my', my + '%');
+        });
+      };
+      card.addEventListener('pointermove', onMove);
+      card.addEventListener('pointerleave', ()=>{
+        card.toggleAttribute('data-reset', true);
+        // smooth reset
+        setTimeout(()=>card.removeAttribute('data-reset'), 120);
       });
     });
 
-    // Respect reduced motion: pause background video
-    const vid = document.querySelector('.bg-video');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches && vid) {
-      vid.removeAttribute('autoplay');
-      vid.pause();
+    // Minimal particles
+    const canvas = document.getElementById('bgParticles');
+    const ctx = canvas?.getContext?.('2d');
+    if(canvas && ctx && !prefersReduced){
+      let width, height, dpr;
+      const particles = [];
+      const COUNT = 60;
+
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      window.addEventListener('resize', resize, {passive:true});
+      resize();
+
+      function spawn(){
+        particles.length = 0;
+        for(let i=0;i<COUNT;i++){
+          particles.push({
+            x: Math.random()*width,
+            y: Math.random()*height,
+            r: Math.random()*1.6 + 0.4,
+            vx: (Math.random()-0.5)*0.25,
+            vy: (Math.random()-0.5)*0.25,
+            a: Math.random()*0.5+0.25
+          });
+        }
+      }
+      spawn();
+
+      function step(){
+        ctx.clearRect(0,0,width,height);
+        // draw
+        for(const p of particles){
+          p.x += p.vx; p.y += p.vy;
+          if(p.x < -5) p.x = width+5; if(p.x > width+5) p.x = -5;
+          if(p.y < -5) p.y = height+5; if(p.y > height+5) p.y = -5;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(34,211,238,${p.a})`;
+          ctx.fill();
+        }
+        // soft links
+        for(let i=0;i<particles.length;i++){
+          for(let j=i+1;j<particles.length;j++){
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.hypot(dx,dy);
+            if(dist < 110){
+              const alpha = (1 - dist/110)*0.15;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(13,148,136,${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
     }
+  })();
   </script>
 </body>
 </html>
