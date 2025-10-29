@@ -6,18 +6,20 @@
   <meta name="color-scheme" content="dark" />
   <title>About • Jethro K. Mandalones | Portfolio</title>
   <meta name="description" content="About Jethro K. Mandalones — Software Developer & Student Leader focused on building modern, user-centered web applications and creative solutions.">
-  <link rel="canonical" href="/about.html" />
+  <!-- canonical should be relative (or include your full GitHub Pages URL) -->
+  <link rel="canonical" href="about.html" />
 
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/images/favicon.png" sizes="32x32">
+  <!-- Favicons (now correctly pointing into /public) -->
+  <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="public/images/favicon.png" sizes="32x32">
 
-  <!-- Preloads for faster paint -->
-  <link rel="preload" as="image" href="/images/bg-fallback.jpg" />
-  <link rel="preload" as="video" href="/videos/nebula-mesh.mp4" />
+  <!-- Preloads for faster paint (relative, inside /public) -->
+  <link rel="preload" as="image" href="public/images/bg-fallback.jpg" />
+  <link rel="preload" as="video" href="public/videos/nebula-mesh.mp4" />
 
-  <!-- Development-time CSS (imported by Vite at build); keep this in src if you prefer JS-imports only -->
-  <link rel="stylesheet" href="/src/styles/main.css" />
+  <!-- Your actual stylesheet in /public -->
+  <link rel="stylesheet" href="public/styles.css" />
+
   <style>
     :root{
       --teal:#22d3ee; --teal-soft:#8cf5ff; --text:#dff9f6; --muted:#bff3ee;
@@ -109,7 +111,6 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html">JETHRO MANDALONES</a>
-      <!-- Updated nav using direct file links -->
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about-read-more.html">About</a>
@@ -128,15 +129,15 @@
       loop
       playsinline
       preload="auto"
-      poster="/images/bg-fallback.jpg">
-      <source src="/videos/nebula-mesh.mp4" type="video/mp4" />
+      poster="public/images/bg-fallback.jpg">
+      <source src="public/videos/nebula-mesh.mp4" type="video/mp4" />
     </video>
     <canvas id="bgParticles" class="bg-canvas"></canvas>
     <div class="bg-overlay"></div>
     <noscript>
       <style>
         .bg-video{display:none}
-        .bg-wrap{background:url('/images/bg-fallback.jpg') center/cover no-repeat fixed;}
+        .bg-wrap{background:url('public/images/bg-fallback.jpg') center/cover no-repeat fixed;}
       </style>
     </noscript>
   </div>
@@ -177,7 +178,7 @@
 
       <!-- Right -->
       <div class="glass photo-card">
-        <img class="photo" src="/images/jethrooo.jpg" alt="Portrait of Jethro K. Mandalones">
+        <img class="photo" src="public/images/jethrooo.jpg" alt="Portrait of Jethro K. Mandalones">
         <div class="photo-grad"></div>
         <div class="photo-inner">
           <p class="overline">SOFTWARE DEVELOPER | FRONT-END SPECIALIST</p>
@@ -252,14 +253,6 @@
 
         <article class="glass value">
           <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"/></svg>
-          </div>
-          <h4 class="h3" style="margin:.25rem 0 .5rem">Innovation</h4>
-          <p class="small" style="color:#daf7f4">Always learning, experimenting, and adapting new tools to solve problems with creativity and precision.</p>
-        </article>
-
-        <article class="glass value">
-          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A6.48 6.48 0 0116.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
           <h4 class="h3" style="margin:.25rem 0 .5rem">Purpose-Driven Growth</h4>
@@ -269,8 +262,7 @@
     </section>
   </main>
 
-  <!-- Shared site scripts: put general logic and CSS imports in here -->
-  <script type="module" src="/src/main.js"></script>
+  <!-- Removed external /src/main.js (not in repo). Keeping your inline scripts below. -->
 
   <script>
     // Footer year
