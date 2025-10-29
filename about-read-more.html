@@ -68,29 +68,43 @@
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
 
     <!-- Hero -->
-    <section class="glass rounded-3xl p-6 sm:p-10">
-      <div class="grid md:grid-cols-5 gap-6 items-center">
-        <div class="md:col-span-3">
-          <span class="chip text-xs tracking-wider text-teal-200/90">READ MORE</span>
-          <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold neon">A little more about me</h1>
-          <p class="mt-4 text-teal-100/90">
-            I am <span class="font-semibold">Jethro K. Mandalones</span>, a software developer who blends logic with creativity to build meaningful digital solutions. I create modern web applications, interactive interfaces, and scalable systems that deliver seamless and engaging user experiences. My work is driven by clean architecture, high performance, and a commitment to purposeful innovation.
-          </p>
+  <!-- Hero -->
+<section class="glass rounded-3xl p-6 sm:p-10">
+  <div class="grid md:grid-cols-5 gap-6 items-center">
+    <div class="md:col-span-3">
+      <span class="chip text-xs tracking-wider text-teal-200/90">READ MORE</span>
+      <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold neon">A little more about me</h1>
+      <p class="mt-4 text-teal-100/90">
+        I am <span class="font-semibold">Jethro K. Mandalones</span>, a software developer who blends logic with creativity to build meaningful digital solutions. I create modern web applications, interactive interfaces, and scalable systems that deliver seamless and engaging user experiences. My work is driven by clean architecture, high performance, and a commitment to purposeful innovation.
+      </p>
 
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="contact.html" class="btn">Book a discovery chat</a>
-            <a href="about-read-more.html" class="btn btn-outline">Back to About</a>
-          </div>
-        </div>
-        <div class="md:col-span-2">
-          <div class="relative rounded-3xl overflow-hidden glass min-h-[260px]">
-            <img src="public/images/jethroo.jpg" alt="Jethro K. Mandalones"
-                 class="absolute inset-0 h-full w-full object-cover" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.8;" />
-            <div class="absolute inset-0" style="position:absolute; inset:0; background: linear-gradient(to top right, rgba(6,27,28,.7), transparent 55%);"></div>
-          </div>
-        </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="contact.html" class="btn">Book a discovery chat</a>
+        <a href="about-read-more.html" class="btn btn-outline">Back to About</a>
       </div>
-    </section>
+    </div>
+
+    <div class="md:col-span-2">
+      <div class="relative rounded-3xl overflow-hidden glass min-h-[260px]">
+        <!-- Prefer PNG; fall back to JPGs if PNG isn’t present -->
+        <picture>
+          <source srcset="public/images/jethroo.png" type="image/png" />
+          <source srcset="public/images/jethroo.jpg" type="image/jpeg" />
+          <img
+            src="public/images/jethrooo.jpg"
+            alt="Jethro K. Mandalones"
+            class="absolute inset-0 h-full w-full object-cover"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.8;"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="absolute inset-0" style="position:absolute; inset:0; background: linear-gradient(to top right, rgba(6,27,28,.7), transparent 55%);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Services -->
     <section class="grid md:grid-cols-3 gap-6">
