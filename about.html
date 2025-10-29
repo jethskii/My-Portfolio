@@ -6,18 +6,19 @@
   <meta name="color-scheme" content="dark" />
   <title>About • Jethro K. Mandalones | Portfolio</title>
   <meta name="description" content="About Jethro K. Mandalones — Software Developer & Student Leader focused on building modern, user-centered web applications and creative solutions.">
-  <link rel="canonical" href="/about.html" />
+  <!-- Canonical removed to avoid pointing at domain root on project pages -->
+  <!-- <link rel="canonical" href="about.html" /> -->
 
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/images/favicon.png" sizes="32x32">
+  <!-- Favicons (relative) -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon.png" sizes="32x32">
 
-  <!-- Preloads for faster paint -->
-  <link rel="preload" as="image" href="/images/bg-fallback.jpg" />
-  <link rel="preload" as="video" href="/videos/nebula-mesh.mp4" />
+  <!-- Preloads (relative) -->
+  <link rel="preload" as="image" href="images/bg-fallback.jpg" />
+  <link rel="preload" as="video" href="videos/nebula-mesh.mp4" />
 
-  <!-- Development-time CSS (imported by Vite at build); keep this in src if you prefer JS-imports only -->
-  <link rel="stylesheet" href="/src/styles/main.css" />
+  <!-- CSS (relative). If you build with Vite, point this to your built CSS instead. -->
+  <link rel="stylesheet" href="src/styles/main.css" />
   <style>
     :root{
       --teal:#22d3ee; --teal-soft:#8cf5ff; --text:#dff9f6; --muted:#bff3ee;
@@ -71,6 +72,8 @@
 
     .photo-card{ position:relative; overflow:hidden; min-height:520px; display:block; }
     @media (min-width:1200px){ .photo-card{ min-height:640px } }
+    <style>
+    </style>
     .photo{ position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; object-position:38% 32%; transform:scale(1.02); opacity:.95; }
     .photo-grad{
       position:absolute; inset:0;
@@ -109,7 +112,6 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html">JETHRO MANDALONES</a>
-      <!-- Updated nav using direct file links -->
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about-read-more.html">About</a>
@@ -128,15 +130,15 @@
       loop
       playsinline
       preload="auto"
-      poster="/images/bg-fallback.jpg">
-      <source src="/videos/nebula-mesh.mp4" type="video/mp4" />
+      poster="images/bg-fallback.jpg">
+      <source src="videos/nebula-mesh.mp4" type="video/mp4" />
     </video>
     <canvas id="bgParticles" class="bg-canvas"></canvas>
     <div class="bg-overlay"></div>
     <noscript>
       <style>
         .bg-video{display:none}
-        .bg-wrap{background:url('/images/bg-fallback.jpg') center/cover no-repeat fixed;}
+        .bg-wrap{background:url('images/bg-fallback.jpg') center/cover no-repeat fixed;}
       </style>
     </noscript>
   </div>
@@ -177,7 +179,7 @@
 
       <!-- Right -->
       <div class="glass photo-card">
-        <img class="photo" src="/images/jethrooo.jpg" alt="Portrait of Jethro K. Mandalones">
+        <img class="photo" src="images/jethrooo.jpg" alt="Portrait of Jethro K. Mandalones">
         <div class="photo-grad"></div>
         <div class="photo-inner">
           <p class="overline">SOFTWARE DEVELOPER | FRONT-END SPECIALIST</p>
@@ -269,8 +271,8 @@
     </section>
   </main>
 
-  <!-- Shared site scripts: put general logic and CSS imports in here -->
-  <script type="module" src="/src/main.js"></script>
+  <!-- Scripts (relative). If building with Vite, include your built JS instead. -->
+  <script type="module" src="src/main.js"></script>
 
   <script>
     // Footer year
