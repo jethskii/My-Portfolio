@@ -242,7 +242,7 @@
     <section class="glass rounded-3xl p-6 sm:p-8">
       <div class="flex items-center justify-between flex-wrap gap-3">
         <h2 class="text-2xl font-extrabold neon">Certificates and achievements</h2>
-        <span class="chip text-xs">3 items</span>
+        <span class="chip text-xs">4 items</span>
       </div>
 
       <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -401,6 +401,57 @@
             </div>
           </div>
         </article>
+
+        <!-- Cert 4 -->
+<article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+  <div class="relative h-40 bg-black/20">
+    <img
+      src="public/certificates/managingbusinessventure.png"
+      alt="Managing Business Venture"
+      class="absolute inset-0 w-full h-full object-cover opacity-85"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#061b1c]/60 to-transparent"></div>
+    <div class="absolute bottom-2 left-2">
+      <span class="chip text-[10px]">2025</span>
+    </div>
+  </div>
+
+  <div class="p-4 flex-1 flex flex-col">
+    <h3 class="text-lg font-bold text-teal-200">Managing Business Venture</h3>
+    <p class="text-xs text-teal-100/80 mt-1">Issued by (Add Issuer Here)</p>
+    <p class="text-[11px] text-teal-100/70 mt-2">
+      Credential ID: <span class="font-mono">(Add ID)</span>
+    </p>
+
+    <div class="mt-4 flex items-center gap-2">
+      <button
+        class="btn btn-outline text-sm"
+        data-certs-preview="public/certificates/managingbusinessventure.png"
+        data-title="Managing Business Venture"
+        onclick="openPreview(this)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12s-3.75 6.75-9.75 6.75S2.25 12 2.25 12z" />
+          <circle cx="12" cy="12" r="3" stroke-width="2" />
+        </svg>
+        Preview
+      </button>
+
+      <a href="https://drive.google.com/drive/folders/1e4TymNpoVO3dm5o3jHcQdHEhj6VMcSrA"
+         target="_blank" rel="noopener" class="btn btn-outline text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 13a5 5 0 007.07 0l2.12-2.12a5 5 0 10-7.07-7.07L10 3" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14 11a5 5 0 01-7.07 0L4.81 8.88a5 5 0 017.07-7.07L14 5" />
+        </svg>
+        Verify
+      </a>
+    </div>
+  </div>
+</article>
 
       </div>
     </section>
