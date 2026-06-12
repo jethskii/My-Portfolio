@@ -6,18 +6,11 @@
   <meta name="color-scheme" content="dark" />
   <title>About • Jethro K. Mandalones | Portfolio</title>
   <meta name="description" content="About Jethro K. Mandalones — Software Developer & Student Leader focused on building modern, user-centered web applications and creative solutions.">
-  <!-- canonical should be relative (or include your full GitHub Pages URL) -->
   <link rel="canonical" href="about.html" />
-
-  <!-- Favicons (now correctly pointing into /public) -->
   <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="public/images/favicon.png" sizes="32x32">
-
-  <!-- Preloads for faster paint (relative, inside /public) -->
   <link rel="preload" as="image" href="public/images/bg-fallback.jpg" />
   <link rel="preload" as="video" href="public/videos/nebula-mesh.mp4" />
-
-  <!-- Your actual stylesheet in /public -->
   <link rel="stylesheet" href="public/styles.css" />
 
   <style>
@@ -29,8 +22,56 @@
     html,body{height:100%}
     body{
       margin:0; font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:var(--text); background:#071e1f; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      color:var(--text); background:#071e1f; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      cursor:none;
     }
+
+    /* ─── CUSTOM CURSOR ─── */
+    #cursor-dot{
+      position:fixed; width:10px; height:10px; border-radius:50%;
+      background:#22d3ee; pointer-events:none; z-index:99999;
+      transform:translate(-50%,-50%);
+      box-shadow:
+        0 0 6px 3px rgba(34,211,238,.95),
+        0 0 18px 8px rgba(34,211,238,.55),
+        0 0 35px 14px rgba(34,211,238,.25);
+      transition:transform .06s ease;
+    }
+    #cursor-ring{
+      position:fixed; width:40px; height:40px; border-radius:50%;
+      border:1.5px solid rgba(34,211,238,.6); pointer-events:none; z-index:99998;
+      transform:translate(-50%,-50%);
+      box-shadow:
+        0 0 10px 2px rgba(34,211,238,.3),
+        inset 0 0 10px 2px rgba(34,211,238,.08);
+    }
+    #cursor-dot.clicked{ transform:translate(-50%,-50%) scale(2.5); }
+    #cursor-ring.clicked{ transform:translate(-50%,-50%) scale(.6); opacity:.4; }
+    .trail-particle{
+      position:fixed; border-radius:50%; pointer-events:none;
+      z-index:99997; transform:translate(-50%,-50%); opacity:0;
+    }
+
+    /* ─── JETHRO ANIMATED LETTERS ─── */
+    .jethro-letter{
+      display:inline-block;
+      color:#65f6e2;
+      animation: letterWave 3s ease-in-out infinite;
+      text-shadow:
+        0 0 8px rgba(34,211,238,.9),
+        0 0 20px rgba(34,211,238,.6),
+        0 0 45px rgba(34,211,238,.35),
+        0 0 80px rgba(34,211,238,.15);
+    }
+    @keyframes letterWave{
+      0%,100%{ transform:translateY(0) scale(1) rotate(0deg); filter:brightness(1); }
+      25%{ transform:translateY(-8px) scale(1.05) rotate(-2deg); filter:brightness(1.25); }
+      50%{ transform:translateY(-14px) scale(1.1) rotate(0deg); filter:brightness(1.5); }
+      75%{ transform:translateY(-8px) scale(1.05) rotate(2deg); filter:brightness(1.25); }
+    }
+
+    /* ─── LAYOUT ─── */
     .bg-wrap{ position:fixed; inset:0; z-index:0; pointer-events:none; }
     .bg-video,.bg-canvas{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .bg-overlay{
@@ -107,6 +148,10 @@
 </head>
 <body>
 
+  <!-- Cursor elements -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
   <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="header-inner">
@@ -147,35 +192,31 @@
       <!-- Left -->
       <div class="glass card-copy">
         <span class="tag">ABOUT</span>
-        <h1 class="h1 neon">Hi there!<br> I am <span class="accent">JETHRO</span></h1>
-       <p class="lead">
-  I’m <strong>Jethro K. Mandalones</strong>, a <strong>Full-Stack Web Developer</strong> and
-  <strong>Bachelor of Science in Information Systems</strong> major in <strong>Business Analytics</strong>,
-  specializing in building high-performance web applications using <strong>Laravel</strong>.
-</p>
-
-<p class="lead-dim">
-  I design and develop scalable, efficient, and user-focused systems using
-  <strong>Laravel</strong>, <strong>Blade</strong>, <strong>Tailwind CSS</strong>,
-  <strong>JavaScript</strong>, <strong>MySQL</strong>, and <strong>Node.js</strong>.
-  My approach centers on <strong>clean architecture</strong>, <strong>performance optimization</strong>,
-  and <strong>data-driven solutions</strong>—transforming complex requirements into practical and impactful systems.
-</p>
-
-<p class="lead-dim">
-  I also bring <strong>strong leadership and collaboration skills</strong> as the
-  <strong>Vice President of the Information Systems Club</strong> at
-  <strong>Pamantasan ng Lungsod ng San Pablo</strong>, where I lead initiatives that connect
-  <strong>technology, innovation, and real-world application</strong>.
-  I am highly adaptable, detail-oriented, and committed to delivering solutions that create measurable value.
-</p>
+        <h1 class="h1 neon">Hi there!<br> I am <span id="jethroLetters"></span></h1>
+        <p class="lead">
+          I'm <strong>Jethro K. Mandalones</strong>, a <strong>Full-Stack Web Developer</strong> and
+          <strong>Bachelor of Science in Information Systems</strong> major in <strong>Business Analytics</strong>,
+          specializing in building high-performance web applications using <strong>Laravel</strong>.
+        </p>
+        <p class="lead-dim">
+          I design and develop scalable, efficient, and user-focused systems using
+          <strong>Laravel</strong>, <strong>Blade</strong>, <strong>Tailwind CSS</strong>,
+          <strong>JavaScript</strong>, <strong>MySQL</strong>, and <strong>Node.js</strong>.
+          My approach centers on <strong>clean architecture</strong>, <strong>performance optimization</strong>,
+          and <strong>data-driven solutions</strong>—transforming complex requirements into practical and impactful systems.
+        </p>
+        <p class="lead-dim">
+          I also bring <strong>strong leadership and collaboration skills</strong> as the
+          <strong>Vice President of the Information Systems Club</strong> at
+          <strong>Pamantasan ng Lungsod ng San Pablo</strong>, where I lead initiatives that connect
+          <strong>technology, innovation, and real-world application</strong>.
+          I am highly adaptable, detail-oriented, and committed to delivering solutions that create measurable value.
+        </p>
         <div class="btn-row">
           <a class="btn primary" href="about-read-more.html">Read More</a>
           <a class="btn" href="tech-stack.html">Tech Stack</a>
           <a class="btn" href="contact.html">Contact Me</a>
         </div>
-
-        <!-- UPDATED: social chips with WhatsApp, LinkedIn, Indeed -->
         <div class="chip-row">
           <a class="chip" href="https://www.facebook.com/jethjeth.mandalones" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
           <a class="chip" href="https://www.instagram.com/jethjetskiii/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
@@ -185,7 +226,6 @@
           <a class="chip" href="https://www.linkedin.com/in/jethromandalones/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
           <a class="chip" href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-jobseeker-profile--profile-one-frontend" target="_blank" rel="noopener" aria-label="Indeed Profile">Indeed</a>
         </div>
-
         <div class="divider"></div>
         <div class="muted">© <span id="year"></span> Jethro Mandalones. All rights reserved.</div>
       </div>
@@ -221,7 +261,6 @@
           <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span>
         </div>
       </div>
-
       <div class="group">
         <p class="group-title">Design and Content</p>
         <div class="chip-grid">
@@ -231,7 +270,6 @@
           <span class="chip">Social Media Kits</span><span class="chip">Photo Retouch</span>
         </div>
       </div>
-
       <div class="group">
         <p class="group-title">Leadership and Tools</p>
         <div class="chip-grid">
@@ -247,7 +285,6 @@
         <h3 class="neon">✨ Core Values</h3>
         <p style="color:#c8fff9; margin-top:.35rem">Principles that shape how I learn, build, and collaborate as a developer</p>
       </div>
-
       <div class="cards">
         <article class="glass value">
           <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
@@ -256,7 +293,6 @@
           <h4 class="h3" style="margin:.25rem 0 .5rem">Clean Code</h4>
           <p class="small" style="color:#daf7f4">Writing maintainable, scalable, and efficient Laravel applications built for real users.</p>
         </article>
-
         <article class="glass value">
           <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -264,7 +300,6 @@
           <h4 class="h3" style="margin:.25rem 0 .5rem">Collaboration</h4>
           <p class="small" style="color:#daf7f4">Working effectively in teams, sharing knowledge, and building meaningful connections through tech and leadership.</p>
         </article>
-
         <article class="glass value">
           <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A6.48 6.48 0 0116.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -276,45 +311,129 @@
     </section>
   </main>
 
-  <!-- Removed external /src/main.js (not in repo). Keeping your inline scripts below. -->
-
   <script>
-    // Footer year
-    (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+    /* ── Footer year ── */
+    (function(){const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();})();
 
-    // Particles
-    (function () {
-      const canvas = document.getElementById('bgParticles');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let w, h, pts = [], raf;
+    /* ── Animated JETHRO letters ── */
+    (function(){
+      const wrap=document.getElementById('jethroLetters');
+      if(!wrap)return;
+      'JETHRO'.split('').forEach((l,i)=>{
+        const s=document.createElement('span');
+        s.className='jethro-letter';
+        s.textContent=l;
+        s.style.animationDelay=(i*0.14)+'s';
+        wrap.appendChild(s);
+      });
+    })();
+
+    /* ── Glowing cursor + particle trail ── */
+    (function(){
+      if(matchMedia('(pointer:coarse)').matches)return; // skip on touch devices
+      const dot=document.getElementById('cursor-dot');
+      const ring=document.getElementById('cursor-ring');
+      let mx=window.innerWidth/2, my=window.innerHeight/2;
+      let rx=mx, ry=my;
+
+      document.addEventListener('mousemove',e=>{
+        mx=e.clientX; my=e.clientY;
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+      });
+      document.addEventListener('mousedown',()=>{dot.classList.add('clicked');ring.classList.add('clicked');});
+      document.addEventListener('mouseup',()=>{dot.classList.remove('clicked');ring.classList.remove('clicked');});
+
+      (function animRing(){
+        rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(animRing);
+      })();
+
+      /* Particle pool */
+      const COLORS=['#22d3ee','#65f6e2','#8cf5ff','#34d399','#a5f3fc','#6ee7f7'];
+      const MAX=28;
+      const pool=[];
+      for(let i=0;i<MAX;i++){
+        const el=document.createElement('div');
+        el.className='trail-particle';
+        document.body.appendChild(el);
+        pool.push({el,x:0,y:0,vx:0,vy:0,life:0,maxLife:0});
+      }
+      let pIdx=0,lastX=mx,lastY=my;
+
+      function spawn(x,y){
+        const p=pool[pIdx++%MAX];
+        const sz=2+Math.random()*7;
+        const c=COLORS[Math.random()*COLORS.length|0];
+        p.x=x; p.y=y;
+        p.vx=(Math.random()-.5)*2.8;
+        p.vy=(Math.random()-.5)*2.8-.6;
+        p.life=p.maxLife=28+Math.random()*35;
+        p.el.style.cssText=`
+          position:fixed; border-radius:50%; pointer-events:none; z-index:99997;
+          width:${sz}px; height:${sz}px;
+          background:${c};
+          box-shadow:0 0 ${sz*2}px ${sz}px ${c}66;
+          left:${x}px; top:${y}px;
+          transform:translate(-50%,-50%);
+          opacity:0;
+        `;
+      }
+
+      function tick(){
+        const d=Math.hypot(mx-lastX,my-lastY);
+        if(d>4){spawn(mx,my);lastX=mx;lastY=my;}
+        for(const p of pool){
+          if(!p.maxLife||p.life<=0){p.el.style.opacity=0;continue;}
+          p.life--;
+          p.x+=p.vx; p.y+=p.vy; p.vy+=.055;
+          const t=p.life/p.maxLife;
+          p.el.style.left=p.x+'px';
+          p.el.style.top=p.y+'px';
+          p.el.style.opacity=t*.9;
+          p.el.style.transform=`translate(-50%,-50%) scale(${t*.9+.1})`;
+        }
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+
+    /* ── Background particles ── */
+    (function(){
+      const canvas=document.getElementById('bgParticles');
+      if(!canvas)return;
+      const ctx=canvas.getContext('2d');
+      let w,h,pts=[];
       function resize(){
-        w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-        const count = Math.min(120, Math.floor((w*h)/16000));
-        pts = Array.from({length:count}, ()=>({ x: Math.random()*w, y: Math.random()*h,
-          vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22, r:Math.random()*1.35+.35, a:Math.random()*.5+.35 }));
+        w=canvas.width=innerWidth; h=canvas.height=innerHeight;
+        const count=Math.min(120,Math.floor((w*h)/16000));
+        pts=Array.from({length:count},()=>({
+          x:Math.random()*w, y:Math.random()*h,
+          vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22,
+          r:Math.random()*1.35+.35, a:Math.random()*.5+.35
+        }));
       }
       function step(){
         ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='lighter';
         for(const p of pts){
-          p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1;
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(34,211,238,${p.a})`; ctx.fill();
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1;
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle=`rgba(34,211,238,${p.a})`; ctx.fill();
         }
-        raf=requestAnimationFrame(step);
+        requestAnimationFrame(step);
       }
-      addEventListener('resize', resize);
-      if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ resize(); step(); }
+      addEventListener('resize',resize);
+      if(!matchMedia('(prefers-reduced-motion:reduce)').matches){resize();step();}
     })();
 
-    // Auto-mark the active nav link based on current file name
-    (function () {
-      const here = location.pathname.split('/').pop() || 'index.html';
-      const links = document.querySelectorAll('.nav a');
-      links.forEach(a => {
-        const target = a.getAttribute('href');
-        if (target === here) {
+    /* ── Active nav link ── */
+    (function(){
+      const here=location.pathname.split('/').pop()||'index.html';
+      document.querySelectorAll('.nav a').forEach(a=>{
+        if(a.getAttribute('href')===here){
           a.classList.add('active');
-          a.setAttribute('aria-current', 'page');
+          a.setAttribute('aria-current','page');
         }
       });
     })();
