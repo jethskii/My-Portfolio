@@ -138,7 +138,7 @@
     .group + .group{margin-top:2rem}
     .group-title{letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; color:var(--muted); margin-bottom:.75rem}
     .chip-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:.5rem}
-    .cv-wrap{margin-top:3.5rem}
+    .cv-wrap{margin-top:3.5rem; margin-bottom:0}
     .cv-title{text-align:center; margin-bottom:2rem}
     .cv-title h3{margin:0; font-size:3rem}
     .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.5rem}
@@ -147,24 +147,26 @@
 
     /* ─── PAC-MAN GAME SECTION ─── */
     .game-section{
-      margin-top:3.5rem;
-      margin-bottom:3.5rem;
+      margin-top:2.25rem;
+      margin-bottom:0;
     }
-    .game-title{
-      text-align:center;
-      margin-bottom:.5rem;
+    .game-section-header{
+      margin-bottom:1.5rem;
     }
-    .game-title h3{
-      margin:0;
-      font-size:2.6rem;
+    .game-section-header h3{
+      margin:0 0 .3rem;
+      font-size:1.6rem;
       font-weight:800;
     }
-    .game-subtitle{
-      text-align:center;
-      color:#c8fff9;
-      margin-top:.35rem;
-      margin-bottom:2rem;
-      font-size:.95rem;
+    .game-section-header p{
+      margin:0;
+      font-size:.85rem;
+      color:var(--muted);
+    }
+    .game-divider{
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+      margin:1.25rem 0;
     }
     .game-layout{
       display:grid;
@@ -173,20 +175,19 @@
     }
     @media(min-width:900px){
       .game-layout{
-        grid-template-columns:1fr 320px;
+        grid-template-columns:1fr 300px;
         align-items:start;
       }
     }
     .game-container{
-      background:rgba(0,0,0,.7);
-      border:2px solid rgba(34,211,238,.3);
-      border-radius:18px;
-      padding:1.5rem;
-      box-shadow:0 0 40px rgba(34,211,238,.1), inset 0 0 0 1px rgba(255,255,255,.04);
+      background:rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:1.25rem;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:1rem;
+      gap:.85rem;
     }
     .game-hud{
       width:100%;
@@ -295,11 +296,10 @@
     }
     /* Leaderboard */
     .leaderboard-panel{
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(34,211,238,.2);
-      border-radius:18px;
+      background:rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
       padding:1.25rem 1.5rem;
-      backdrop-filter:blur(14px);
     }
     .lb-header{
       display:flex;
@@ -633,15 +633,48 @@
       </div>
     </section>
 
-    <!-- ===== PAC-MAN GAME ===== -->
-    <section class="game-section">
-      <div class="game-title">
-        <h3 class="neon">🕹️ Take a Break — Play Pac-Man!</h3>
+    <!-- ===== Core Values ===== -->
+    <section class="cv-wrap">
+      <div class="cv-title">
+        <h3 class="neon">✨ Core Values</h3>
+        <p style="color:#c8fff9; margin-top:.35rem">Principles that shape how I learn, build, and collaborate as a developer</p>
       </div>
-      <p class="game-subtitle">While you're here, enjoy a game. Can you beat the high score?</p>
+      <div class="cards">
+        <article class="glass value">
+          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </div>
+          <h4 class="h3" style="margin:.25rem 0 .5rem">Clean Code</h4>
+          <p class="small" style="color:#daf7f4">Writing maintainable, scalable, and efficient Laravel applications built for real users.</p>
+        </article>
+        <article class="glass value">
+          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+          <h4 class="h3" style="margin:.25rem 0 .5rem">Collaboration</h4>
+          <p class="small" style="color:#daf7f4">Working effectively in teams, sharing knowledge, and building meaningful connections through tech and leadership.</p>
+        </article>
+        <article class="glass value">
+          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A6.48 6.48 0 0116.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <h4 class="h3" style="margin:.25rem 0 .5rem">Purpose-Driven Growth</h4>
+          <p class="small" style="color:#daf7f4">Building with intention — creating solutions that empower people, simplify tasks, and make an impact.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PAC-MAN GAME ===== -->
+    <section class="glass panel game-section">
+      <div class="game-section-header">
+        <span class="tag">MINI GAME</span>
+        <h3 class="neon" style="margin:.6rem 0 .3rem; font-size:1.6rem; font-weight:800">🕹️ Take a Break — Play Pac-Man!</h3>
+        <p style="margin:0; font-size:.85rem; color:var(--muted)">While you're here, enjoy a game. Can you beat the high score on the leaderboard?</p>
+      </div>
+      <div class="game-divider"></div>
 
       <div class="game-layout">
-        <!-- Game -->
+        <!-- Game Canvas -->
         <div class="game-container">
           <div class="game-hud">
             <div class="hud-item">
@@ -665,9 +698,9 @@
           <div class="canvas-wrap">
             <canvas id="pacmanCanvas" width="560" height="560"></canvas>
             <div id="gameOverlay">
-              <h2 class="neon" style="font-size:2.2rem">👾 PAC-MAN</h2>
-              <p style="color:var(--muted); font-size:.82rem">Use arrow keys or WASD to move</p>
-              <button class="game-btn primary-btn" id="startBtn" style="font-size:1rem; padding:.7rem 2rem; margin-top:.5rem">▶ START GAME</button>
+              <h2 class="neon" style="font-size:2rem">👾 PAC-MAN</h2>
+              <p style="color:var(--muted); font-size:.82rem">Arrow keys or WASD to move</p>
+              <button class="game-btn primary-btn" id="startBtn" style="font-size:.95rem; padding:.65rem 1.8rem; margin-top:.5rem">▶ START GAME</button>
             </div>
           </div>
 
@@ -700,37 +733,6 @@
           </ul>
           <div class="lb-beat-msg" id="beatMsg" style="display:none"></div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== Core Values ===== -->
-    <section class="cv-wrap">
-      <div class="cv-title">
-        <h3 class="neon">✨ Core Values</h3>
-        <p style="color:#c8fff9; margin-top:.35rem">Principles that shape how I learn, build, and collaborate as a developer</p>
-      </div>
-      <div class="cards">
-        <article class="glass value">
-          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-          </div>
-          <h4 class="h3" style="margin:.25rem 0 .5rem">Clean Code</h4>
-          <p class="small" style="color:#daf7f4">Writing maintainable, scalable, and efficient Laravel applications built for real users.</p>
-        </article>
-        <article class="glass value">
-          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </div>
-          <h4 class="h3" style="margin:.25rem 0 .5rem">Collaboration</h4>
-          <p class="small" style="color:#daf7f4">Working effectively in teams, sharing knowledge, and building meaningful connections through tech and leadership.</p>
-        </article>
-        <article class="glass value">
-          <div class="icon" style="color:var(--teal-soft); margin-bottom:12px; display:flex; justify-content:center">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A6.48 6.48 0 0116.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </div>
-          <h4 class="h3" style="margin:.25rem 0 .5rem">Purpose-Driven Growth</h4>
-          <p class="small" style="color:#daf7f4">Building with intention — creating solutions that empower people, simplify tasks, and make an impact.</p>
-        </article>
       </div>
     </section>
   </main>
