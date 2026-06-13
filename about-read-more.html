@@ -1154,77 +1154,77 @@
         type: 'video',
         title: 'Verdecana — Brand Promo Video',
         desc: 'A cinematic brand promotional video for Verdecana, showcasing product highlights, motion graphics, and color-graded visuals crafted for social media and digital campaigns.',
-        src: 'public/videos/verdecana.mp4',
+        gdrive: 'https://drive.google.com/file/d/12ixbMswqs06qwjvPzecRYaHm1vK0RMiJ/preview',
         tools: ['CapCut Pro', 'Color Grading', 'Motion Graphics', 'Brand Video']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 01',
         desc: 'Visual design piece created for social media publication, combining typography, layout, and brand-consistent color palette using Canva Pro and Adobe Photoshop.',
-        src: 'public/graphics/graphic1.png',
+        src: 'public/images/graphic1.png',
         tools: ['Canva Pro', 'Adobe Photoshop', 'Social Media Design']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 02',
         desc: 'Event poster and promotional material designed for organizational use, emphasizing hierarchy, visual contrast, and audience-targeted messaging.',
-        src: 'public/graphics/graphic2.png',
+        src: 'public/images/graphic2.png',
         tools: ['Canva Pro', 'Poster Design', 'Publication']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 03',
         desc: 'Digital publication material featuring editorial layout with structured grid, custom iconography, and consistent branding across multi-page spreads.',
-        src: 'public/graphics/graphic3.png',
+        src: 'public/images/graphic3.png',
         tools: ['Canva Pro', 'Adobe Photoshop', 'Editorial Design']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 04',
         desc: 'Social media carousel content crafted to maximize engagement through swipeable storytelling, strong visual hooks, and cohesive brand language.',
-        src: 'public/graphics/graphic4.png',
+        src: 'public/images/graphic4.png',
         tools: ['Canva Pro', 'Carousel Design', 'Social Media']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 05',
         desc: 'Promotional graphic for a community or campus event, designed to capture attention quickly with bold typography and high-impact visual composition.',
-        src: 'public/graphics/graphic5.png',
+        src: 'public/images/graphic5.png',
         tools: ['Canva Pro', 'Event Graphic', 'Typography']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 06',
         desc: 'Brand identity visual asset including logo placement, color system application, and layout guidelines for consistent digital and print use.',
-        src: 'public/graphics/graphic6.png',
+        src: 'public/images/graphic6.png',
         tools: ['Canva Pro', 'Brand Identity', 'Adobe Photoshop']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 07',
         desc: 'Informational or educational graphic designed for online distribution, translating complex information into clean, digestible visual content.',
-        src: 'public/graphics/graphic7.png',
+        src: 'public/images/graphic7.png',
         tools: ['Canva Pro', 'Infographic', 'Visual Communication']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 08',
         desc: 'Creative layout for digital publication or newsletter, balancing photography, text blocks, and decorative elements for a polished editorial feel.',
-        src: 'public/graphics/graphic8.png',
+        src: 'public/images/graphic8.png',
         tools: ['Canva Pro', 'Adobe Photoshop', 'Newsletter Design']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 09',
         desc: 'Social media story or reel thumbnail designed for maximum click-through, with motion-feel composition and eye-catching visual hierarchy.',
-        src: 'public/graphics/graphic9.png',
+        src: 'public/images/graphic9.png',
         tools: ['Canva Pro', 'Story Design', 'Thumbnail']
       },
       {
         type: 'graphic',
         title: 'Graphic Design — Piece 10',
         desc: 'Final-tier design showcase piece representing the full range of design skills — from concept ideation to polished visual output ready for real-world deployment.',
-        src: 'public/graphics/graphic10.png',
+        src: 'public/images/graphic10.png',
         tools: ['Canva Pro', 'Adobe Photoshop', 'Full Production']
       }
     ];
@@ -1283,27 +1283,15 @@
 
       if (isVideo) {
         mediaEl.classList.add('video-mode');
-        const video = document.createElement('video');
-        video.controls = true;
-        video.autoplay = false;
-        video.muted = false;
-        video.playsInline = true;
-        video.style.width = '100%';
-        video.style.height = 'auto';
-        video.style.display = 'block';
-        video.style.position = 'relative';
-        video.style.zIndex = '2';
-        const source = document.createElement('source');
-        source.src = card.src;
-        source.type = 'video/mp4';
-        video.appendChild(source);
-        video.onloadeddata = () => { placeholder.style.display = 'none'; };
-        video.onerror = () => {
-          placeholder.querySelector('p').textContent = 'Video not found — add ' + card.src;
-        };
-        mediaContent.appendChild(video);
-        // try loading
-        video.load();
+        const iframe = document.createElement('iframe');
+        iframe.src = card.gdrive;
+        iframe.allow = 'autoplay';
+        iframe.allowFullscreen = true;
+        iframe.frameBorder = '0';
+        iframe.style.cssText = 'width:100%;aspect-ratio:16/9;display:block;position:relative;z-index:2;border:none;';
+        iframe.onload = () => { placeholder.style.display = 'none'; };
+        mediaContent.appendChild(iframe);
+        setTimeout(() => { placeholder.style.display = 'none'; }, 1200);
       } else {
         mediaEl.classList.remove('video-mode');
         const img = document.createElement('img');
@@ -1331,9 +1319,9 @@
     function animateFlip(direction, newIdx) {
       const inner = document.getElementById('flashcardInner');
 
-      // pause any playing video
-      const oldVideo = inner.querySelector('video');
-      if (oldVideo) oldVideo.pause();
+      // clear any iframe to stop background playback
+      const oldIframe = inner.querySelector('iframe');
+      if (oldIframe) oldIframe.src = '';
 
       // flip out
       inner.style.transition = 'transform .38s cubic-bezier(.4,0,.2,1)';
