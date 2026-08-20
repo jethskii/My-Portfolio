@@ -33,6 +33,77 @@ export const aboutStats = [
   { title: "Leadership Awardee", subtitle: "Recognized Excellence", icon: "trophy" },
 ] as const;
 
+export const targetRoles = [
+  "Business Analyst",
+  "Data Analyst",
+  "Systems Analyst",
+  "IT Specialist",
+  "Web Developer",
+  "Software/Programming",
+  "Business Intelligence",
+  "Technical/Operations",
+];
+
+export type Qualification = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
+export const qualifications: Qualification[] = [
+  {
+    title: "Credentialed",
+    description: "BS Information Systems Graduate",
+    icon: "graduation-cap",
+  },
+  {
+    title: "Specialized",
+    description: "Major in Business Analytics",
+    icon: "bar-chart-3",
+  },
+  {
+    title: "Proven Hands-On",
+    description:
+      'Lead Programmer — "Web-Based Predictive Analytics & Inventory Forecasting System"',
+    icon: "code",
+  },
+  {
+    title: "Leadership-Capable",
+    description: "IS Club Vice President",
+    icon: "users",
+  },
+  {
+    title: "High Performer",
+    description: "Dean's Lister",
+    icon: "star",
+  },
+];
+
+export const academicCredential = {
+  institution: "Pamantasan ng Lungsod ng San Pablo",
+  degree: "BS Information Systems",
+  major: "Major in Business Analytics",
+  status: "Graduate",
+  secondary: [
+    { label: "IS Club Vice President", icon: "users" },
+    { label: "Leadership Awardee", icon: "award" },
+  ],
+};
+
+export type TechQualification = { name: string; icon: string };
+
+export const technicalQualifications: TechQualification[] = [
+  { name: "Laravel", icon: "layers" },
+  { name: "PHP", icon: "file-code" },
+  { name: "JavaScript", icon: "braces" },
+  { name: "MySQL", icon: "database" },
+  { name: "Git", icon: "git-branch" },
+  { name: "GitHub", icon: "github" },
+  { name: "VS Code", icon: "code-2" },
+  { name: "Chart.js", icon: "bar-chart-3" },
+  { name: "Flutter", icon: "smartphone" },
+];
+
 export type SkillCategory = {
   title: string;
   icon: string;
