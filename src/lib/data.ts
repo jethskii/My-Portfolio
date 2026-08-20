@@ -1,3 +1,5 @@
+import { withBasePath } from "./basePath";
+
 export const site = {
   name: "Jethro Katigbak Mandalones",
   shortName: "Jethro",
@@ -8,7 +10,7 @@ export const site = {
   location: "San Pablo City, Laguna, Philippines",
   email: "Mandalonesjeth748@gmail.com",
   phone: "0945 730 2942",
-  avatar: "/images/jethroooo.jpg",
+  avatar: withBasePath("/images/jethroooo.jpg"),
 };
 
 export const navLinks = [
