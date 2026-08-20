@@ -33,6 +33,64 @@ export const aboutStats = [
   { title: "Leadership Awardee", subtitle: "Recognized Excellence", icon: "trophy" },
 ] as const;
 
+export type Certification = {
+  title: string;
+  issuer: string;
+  date?: string;
+  image?: string;
+};
+
+function certImage(path: string) {
+  return withBasePath(encodeURI(path));
+}
+
+export const certifications: Certification[] = [
+  {
+    title: "Managing a Business Venture",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    image: certImage("/certificates/managingbusinessventure.png"),
+  },
+  {
+    title: "AI in Data Analytics",
+    issuer: "Department of Information and Communications Technology (DICT)",
+    date: "2025",
+    image: certImage("/certificates/DICT.png"),
+  },
+  {
+    title: "Ethical Hacking and Data Security Seminar",
+    issuer: "Pamantasan ng Lungsod ng San Pablo",
+    date: "2025",
+    image: certImage("/certificates/ethical hacking.png"),
+  },
+  {
+    title: "Data Analytics for Accounting and Business Decision Making",
+    issuer: "Pamantasan ng Lungsod ng San Pablo",
+    date: "2026",
+    image: certImage(
+      "/certificates/Data Analytics for Accounting ang Business Decision Making.png"
+    ),
+  },
+  {
+    title: "Walang Iwanan sa Digital Bayanihan",
+    issuer: "National ICT Month Celebration — Pamantasan ng Lungsod ng San Pablo",
+    date: "2025",
+    image: certImage("/certificates/digital bayanihan.png"),
+  },
+  {
+    title: "Arduino Microprocessor Training",
+    issuer: "Hands-on embedded systems and microcontroller training",
+  },
+  {
+    title: "Stakeholder Conference",
+    issuer: "Industry and academic stakeholder engagement",
+  },
+  {
+    title: "On-the-Job Training — 486 Hours",
+    issuer: "Alexa's Engineering Services",
+  },
+];
+
 export const targetRoles = [
   "Business Analyst",
   "Data Analyst",
