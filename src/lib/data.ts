@@ -11,6 +11,7 @@ export const site = {
   email: "Mandalonesjeth748@gmail.com",
   phone: "0945 730 2942",
   avatar: withBasePath("/images/jethroooo.jpg"),
+  qualificationsPortrait: withBasePath("/images/Qualification.png"),
 };
 
 export const navLinks = [

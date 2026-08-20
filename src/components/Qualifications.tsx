@@ -137,16 +137,14 @@ export function Qualifications() {
               className="relative"
             >
               <div className="absolute inset-0 rounded-full bg-accent/25 blur-[70px]" />
-              <div className="glow-ring relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-[3rem] border border-border-strong shadow-[0_30px_60px_-24px_rgba(0,0,0,0.6)]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]">
                 <Image
-                  src={site.avatar}
+                  src={site.qualificationsPortrait}
                   alt={`Portrait of ${site.name}`}
                   fill
                   sizes="280px"
-                  className="object-cover"
+                  className="object-contain object-bottom"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/70 via-transparent to-transparent" />
-                <div className="absolute inset-0 rounded-[3rem] ring-1 ring-inset ring-accent/20" />
               </div>
             </motion.div>
           </motion.div>
