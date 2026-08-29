@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
+import { BootScreen } from "@/components/BootScreen";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,7 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body className="antialiased bg-bg text-text">{children}</body>
+      <body className="antialiased bg-bg text-text">
+        <BootScreen />
+        {children}
+      </body>
     </html>
   );
 }
