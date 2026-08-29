@@ -313,6 +313,36 @@ export const projects: Project[] = [
     ],
     status: "In Progress",
   },
+  {
+    id: "sandali",
+    number: "03",
+    title: "Sandali — Pixel-Art Study Timer",
+    description:
+      "A no-login, offline-capable study timer with a retro pixel-art sari-sari-store aesthetic, built as a single self-contained HTML file with zero dependencies beyond Google Fonts.",
+    technologies: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Web Audio API",
+      "localStorage",
+      "Page Visibility API",
+    ],
+    gradient: "from-amber-500/25 via-orange-600/20 to-rose-500/20",
+    image: withBasePath("/images/SandaliSS.jpg"),
+    screenshots: [withBasePath("/images/SandaliSS.jpg")],
+    liveDemo: "https://jethskii.github.io/Sandali/",
+    problemSolved:
+      "Wanted a lightweight study/review timer that builds habits — streaks, goals, Pomodoro cycling — without ever requiring an account, a server, or a database, and that feels like a retro game HUD instead of a generic productivity app.",
+    keyFeatures: [
+      "Zero-backend, single self-contained HTML file — no build step, deploys as-is to GitHub Pages",
+      "Pomodoro mode with auto-cycling focus/break periods",
+      "Streaks, daily/weekly totals, and an editable goal with progress bar, all derived on the fly from the session log",
+      "Resilient timer state that resumes exactly where it left off after a closed tab or the OS sleeping",
+      "Auto-pause on tab switch via the Page Visibility API, flagged in the status line",
+      "Generated completion alarm and ambient background loop synthesized entirely via the Web Audio API — no audio files",
+    ],
+    status: "Completed",
+  },
 ];
 
 export const socials = [
