@@ -22,8 +22,6 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const heroTechBadges = ["Laravel", "React", "MySQL", "Business Analytics"];
-
 export const aboutText =
   "I am a graduate of Bachelor of Science in Information Systems with a specialization in Business Analytics. Throughout my academic journey, I gained experience in web development, database management, system analysis, and business intelligence. I enjoy transforming ideas into functional digital solutions and continuously improving my technical and analytical skills.";
 

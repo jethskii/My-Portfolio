@@ -1,9 +1,19 @@
 type GlowBackgroundProps = {
-  variant?: "hero" | "section";
+  variant?: "hero" | "section" | "minimal";
   className?: string;
 };
 
 export function GlowBackground({ variant = "section", className = "" }: GlowBackgroundProps) {
+  if (variant === "minimal") {
+    return (
+      <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
+        <div className="absolute inset-0 bg-grid opacity-[0.15] [mask-image:radial-gradient(ellipse_65%_55%_at_50%_35%,black,transparent)]" />
+        <div className="absolute top-1/3 left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[140px]" />
+        <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(rgba(255,255,255,0.8)_1px,transparent_1px)] [background-size:44px_44px]" />
+      </div>
+    );
+  }
+
   if (variant === "hero") {
     return (
       <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
