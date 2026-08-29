@@ -270,18 +270,32 @@ export const projects: Project[] = [
     number: "02",
     title: "Succor Haven",
     description:
-      "A student support and learning platform featuring AI tutoring, scheduling, notifications, and educational management tools.",
-    technologies: ["Flutter", "Riverpod", "Firebase"],
+      "A tutoring platform that connects teachers and students with a booking system, live 1-on-1 video sessions, and real-time collaboration tools for the duration of each class.",
+    technologies: [
+      "Flutter",
+      "Riverpod",
+      "WebRTC",
+      "Socket.IO",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "JWT",
+      "coturn",
+      "Render",
+    ],
     gradient: "from-cyan-500/25 via-blue-600/20 to-violet-600/20",
-  },
-  {
-    id: "business-analytics-dashboard",
-    number: "03",
-    title: "Business Analytics Dashboard",
-    description:
-      "An interactive dashboard that visualizes business performance metrics, KPIs, and data insights for decision-making.",
-    technologies: ["Laravel", "MySQL", "Chart.js"],
-    gradient: "from-fuchsia-500/25 via-violet-600/20 to-indigo-600/20",
+    video: { type: "drive", fileId: "1xKL33D-CDo3dH3Ioa4gb_cht2VFvotCh" },
+    problemSolved:
+      "Teachers and students needed a complete remote tutoring workflow — booking, live 1-on-1 classes, and in-session collaboration — built entirely on self-hosted infrastructure (no Google, Firebase, or AWS) so it stays reachable in restricted network environments like China.",
+    keyFeatures: [
+      "Student, Teacher, and Admin accounts with email OTP, phone OTP, or password login",
+      "Session booking: students request a date/time/subject, teachers approve, decline, or reschedule",
+      "Admin approval gate before a teacher profile can go live",
+      "\"My Sessions\" meeting room: WebRTC video calls, screen sharing with pin & zoom, live chat, whiteboard, notes, and file sharing",
+      "Raise hand / reactions plus an auto session timer that closes the room when time is up",
+      "Admin dashboard for user management and teacher approvals, announcements with comments, and learning modules",
+    ],
+    status: "In Progress",
   },
 ];
 
