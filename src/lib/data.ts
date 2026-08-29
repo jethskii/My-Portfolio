@@ -260,14 +260,14 @@ export const projects: Project[] = [
     number: "01",
     title: "GenRev — Inventory Demand Forecasting System",
     description:
-      "A predictive analytics system developed for Joshua's Meat Products Inc. that forecasts inventory demand using historical sales data and business intelligence techniques.",
+      "A predictive analytics system developed for GenRev's Meat Production that forecasts inventory demand using historical sales data and business intelligence techniques.",
     technologies: ["Laravel", "PHP", "MySQL", "Chart.js"],
     gradient: "from-violet-600/30 via-purple-600/20 to-fuchsia-500/20",
     image: withBasePath("/images/genrev.png"),
     screenshots: [withBasePath("/images/genrev.png")],
     video: { type: "drive", fileId: "1cycaufQV_DLGk7mAX20n3Yo7EbxQVnPJ" },
     problemSolved:
-      "Joshua's Meat Products Inc. needed a reliable way to forecast inventory demand instead of relying on guesswork — using historical sales data and business intelligence techniques to plan production and materials.",
+      "GenRev's Meat Production needed a reliable way to forecast inventory demand instead of relying on guesswork — using historical sales data and business intelligence techniques to plan production and materials.",
     keyFeatures: [
       "Real-time sales & revenue dashboard (total revenue, units sold, average price per unit)",
       "Production and materials tracking (weekly materials on hand, total products)",
@@ -297,6 +297,8 @@ export const projects: Project[] = [
       "Render",
     ],
     gradient: "from-cyan-500/25 via-blue-600/20 to-violet-600/20",
+    image: withBasePath("/images/SuccorHaven.png"),
+    screenshots: [withBasePath("/images/SuccorHaven.png")],
     video: { type: "drive", fileId: "1xKL33D-CDo3dH3Ioa4gb_cht2VFvotCh" },
     problemSolved:
       "Teachers and students needed a complete remote tutoring workflow — booking, live 1-on-1 classes, and in-session collaboration — built entirely on self-hosted infrastructure (no Google, Firebase, or AWS) so it stays reachable in restricted network environments like China.",
