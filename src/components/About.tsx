@@ -32,7 +32,8 @@ export function About() {
             ABOUT ME
           </p>
           <h2 className="mt-3 text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Bridging Technology &amp; <span className="text-gradient">Business Insight</span>
+            Bridging Technology &amp;{" "}
+            <span className="text-gradient-animated">Business Insight</span>
           </h2>
         </Reveal>
 

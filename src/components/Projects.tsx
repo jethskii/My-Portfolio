@@ -7,6 +7,7 @@ import { TrendingUp, GraduationCap, LineChart, Maximize2 } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { ProjectModal } from "./ProjectModal";
+import { TiltCard } from "./TiltCard";
 
 const projectIcons = [TrendingUp, GraduationCap, LineChart];
 
@@ -38,7 +39,8 @@ export function Projects() {
           {projects.map((project, i) => {
             const Icon = projectIcons[i % projectIcons.length];
             return (
-              <RevealItem key={project.id}>
+              <RevealItem key={project.id} className="h-full">
+                <TiltCard className="h-full">
                 <button
                   type="button"
                   onClick={() => setActiveIndex(i)}
@@ -96,6 +98,7 @@ export function Projects() {
                     </div>
                   </div>
                 </button>
+                </TiltCard>
               </RevealItem>
             );
           })}

@@ -29,7 +29,7 @@ export function Contact() {
                 <br />
                 something that
                 <br />
-                <span className="text-gradient">solves real problems.</span>
+                <span className="text-gradient-animated">solves real problems.</span>
               </h2>
 
               <p className="mt-6 max-w-md text-base leading-relaxed text-text-muted">

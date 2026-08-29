@@ -4,6 +4,8 @@ import "./globals.css";
 import { site } from "@/lib/data";
 import { BootScreen } from "@/components/BootScreen";
 import { NebulaBackground } from "@/components/NebulaBackground";
+import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,6 +48,8 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body className="antialiased bg-bg text-text">
         <NebulaBackground />
+        <CursorSpotlight />
+        <ScrollProgress />
         <BootScreen />
         {children}
       </body>
