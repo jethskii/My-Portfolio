@@ -1,12 +1,19 @@
 "use client";
 
-import { TrendingUp, GraduationCap, LineChart } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import { AnimatePresence } from "framer-motion";
+import { TrendingUp, GraduationCap, LineChart, Maximize2 } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
+import { ProjectModal } from "./ProjectModal";
 
 const projectIcons = [TrendingUp, GraduationCap, LineChart];
 
 export function Projects() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const activeProject = activeIndex !== null ? projects[activeIndex] : null;
+
   return (
     <section id="projects" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -19,7 +26,8 @@ export function Projects() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-text-muted">
             Selected systems and applications where I combined development skills with
-            analytical thinking to solve real business problems.
+            analytical thinking to solve real business problems. Click a project to inspect it in
+            detail.
           </p>
         </Reveal>
 
@@ -31,17 +39,42 @@ export function Projects() {
             const Icon = projectIcons[i % projectIcons.length];
             return (
               <RevealItem key={project.id}>
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_28px_56px_-20px_rgba(124,77,255,0.5)]">
+                <button
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  aria-haspopup="dialog"
+                  className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl glass text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_28px_56px_-20px_rgba(124,77,255,0.5)]"
+                >
                   <div
                     className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br ${project.gradient}`}
                   >
-                    <div className="absolute inset-0 bg-grid opacity-30" />
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        loading="lazy"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-grid opacity-30" />
+                        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-md transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                          <Icon size={28} />
+                        </span>
+                      </>
+                    )}
                     <span className="absolute left-4 top-4 rounded-full glass-strong px-3 py-1 text-xs font-semibold text-text-muted">
                       {project.number}
                     </span>
-                    <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-md transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                      <Icon size={28} />
-                    </span>
+
+                    <div className="absolute inset-0 flex items-center justify-center bg-bg/70 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="flex items-center gap-2 rounded-full glass-strong px-3.5 py-1.5 text-xs font-semibold text-white">
+                        <Maximize2 size={14} />
+                        Click to Inspect
+                      </span>
+                    </div>
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
@@ -62,12 +95,27 @@ export function Projects() {
                       ))}
                     </div>
                   </div>
-                </article>
+                </button>
               </RevealItem>
             );
           })}
         </RevealGroup>
       </div>
+
+      <AnimatePresence>
+        {activeProject && (
+          <ProjectModal
+            project={activeProject}
+            hasPrev={activeIndex! > 0}
+            hasNext={activeIndex! < projects.length - 1}
+            onClose={() => setActiveIndex(null)}
+            onPrev={() => setActiveIndex((i) => (i !== null && i > 0 ? i - 1 : i))}
+            onNext={() =>
+              setActiveIndex((i) => (i !== null && i < projects.length - 1 ? i + 1 : i))
+            }
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

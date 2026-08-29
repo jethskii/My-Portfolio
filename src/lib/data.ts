@@ -215,6 +215,12 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+export type ProjectStatus = "Completed" | "In Progress" | "Production";
+
+export type ProjectVideo =
+  | { type: "drive"; fileId: string }
+  | { type: "file"; src: string; poster?: string };
+
 export type Project = {
   id: string;
   number: string;
@@ -222,17 +228,42 @@ export type Project = {
   description: string;
   technologies: string[];
   gradient: string;
+  image?: string;
+  screenshots?: string[];
+  video?: ProjectVideo;
+  problemSolved?: string;
+  keyFeatures?: string[];
+  challenges?: string;
+  myRole?: string;
+  status?: ProjectStatus;
+  liveDemo?: string;
+  githubRepo?: string;
+  caseStudy?: string;
 };
 
 export const projects: Project[] = [
   {
     id: "inventory-demand-forecasting",
     number: "01",
-    title: "Inventory Demand Forecasting System",
+    title: "GenRev — Inventory Demand Forecasting System",
     description:
       "A predictive analytics system developed for Joshua's Meat Products Inc. that forecasts inventory demand using historical sales data and business intelligence techniques.",
     technologies: ["Laravel", "PHP", "MySQL", "Chart.js"],
     gradient: "from-violet-600/30 via-purple-600/20 to-fuchsia-500/20",
+    image: withBasePath("/images/genrev.png"),
+    screenshots: [withBasePath("/images/genrev.png")],
+    video: { type: "drive", fileId: "1cycaufQV_DLGk7mAX20n3Yo7EbxQVnPJ" },
+    problemSolved:
+      "Joshua's Meat Products Inc. needed a reliable way to forecast inventory demand instead of relying on guesswork — using historical sales data and business intelligence techniques to plan production and materials.",
+    keyFeatures: [
+      "Real-time sales & revenue dashboard (total revenue, units sold, average price per unit)",
+      "Production and materials tracking (weekly materials on hand, total products)",
+      "Sales transaction logging with product, variant, price, and date breakdown",
+      "Top-selling products and variant ranking",
+      "Inventory, product, and employee management modules",
+    ],
+    myRole: "Lead Programmer (Capstone Project)",
+    status: "Completed",
   },
   {
     id: "succor-haven",
