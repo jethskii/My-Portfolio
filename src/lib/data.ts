@@ -163,54 +163,69 @@ export const technicalQualifications: TechQualification[] = [
   { name: "Flutter", icon: "smartphone" },
 ];
 
-export type SkillCategory = {
-  title: string;
-  icon: string;
-  skills: { name: string; level: number }[];
-};
+export type TechStackItem = { name: string; subtitle: string; icon: string; colorClass: string };
+export type TechStackRow = { label: string; items: TechStackItem[] };
+export type TechStackGroup = { title: string; rows: TechStackRow[] };
 
-export const skillCategories: SkillCategory[] = [
+export const techStackGroups: TechStackGroup[] = [
   {
-    title: "Frontend",
-    icon: "layout-template",
-    skills: [
-      { name: "HTML5", level: 95 },
-      { name: "CSS3", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "Bootstrap", level: 85 },
-      { name: "Tailwind CSS", level: 88 },
+    title: "Core Stack",
+    rows: [
+      {
+        label: "Frontend",
+        items: [
+          { name: "HTML5", subtitle: "Page Structure", icon: "file-code", colorClass: "text-orange-500" },
+          { name: "CSS3", subtitle: "Visual Styling", icon: "palette", colorClass: "text-blue-500" },
+          { name: "JavaScript", subtitle: "App Logic", icon: "braces", colorClass: "text-yellow-400" },
+          { name: "Bootstrap", subtitle: "UI Framework", icon: "layout-grid", colorClass: "text-purple-500" },
+          { name: "Tailwind CSS", subtitle: "Utility Styling", icon: "wind", colorClass: "text-cyan-400" },
+        ],
+      },
+      {
+        label: "Backend & Database",
+        items: [
+          { name: "PHP", subtitle: "Server Logic", icon: "file-code", colorClass: "text-indigo-400" },
+          { name: "Laravel", subtitle: "Backend Framework", icon: "flame", colorClass: "text-red-500" },
+          { name: "Node.js", subtitle: "Server Runtime", icon: "hexagon", colorClass: "text-green-500" },
+          { name: "Express", subtitle: "API Layer", icon: "server", colorClass: "text-neutral-300" },
+          { name: "MySQL", subtitle: "Relational DB", icon: "database", colorClass: "text-blue-400" },
+          { name: "PostgreSQL", subtitle: "Relational DB", icon: "database", colorClass: "text-sky-400" },
+        ],
+      },
     ],
   },
   {
-    title: "Backend",
-    icon: "server",
-    skills: [
-      { name: "PHP", level: 85 },
-      { name: "Laravel", level: 88 },
-    ],
-  },
-  {
-    title: "Database",
-    icon: "database",
-    skills: [{ name: "MySQL", level: 88 }],
-  },
-  {
-    title: "Tools",
-    icon: "wrench",
-    skills: [
-      { name: "Git", level: 85 },
-      { name: "GitHub", level: 85 },
-      { name: "VS Code", level: 90 },
-      { name: "XAMPP", level: 85 },
-    ],
-  },
-  {
-    title: "Analytics",
-    icon: "bar-chart-3",
-    skills: [
-      { name: "Business Analytics", level: 85 },
-      { name: "Data Visualization", level: 82 },
-      { name: "Predictive Analytics", level: 78 },
+    title: "Supporting Tools",
+    rows: [
+      {
+        label: "Real-Time & Mobile",
+        items: [
+          { name: "Flutter", subtitle: "Cross-Platform UI", icon: "smartphone", colorClass: "text-blue-400" },
+          { name: "Riverpod", subtitle: "State Management", icon: "waves", colorClass: "text-sky-400" },
+          { name: "WebRTC", subtitle: "Real-Time Video", icon: "video", colorClass: "text-emerald-400" },
+          { name: "Socket.IO", subtitle: "Real-Time Events", icon: "radio", colorClass: "text-neutral-300" },
+          { name: "JWT", subtitle: "Auth Tokens", icon: "key-round", colorClass: "text-fuchsia-400" },
+        ],
+      },
+      {
+        label: "Dev Tools & Deployment",
+        items: [
+          { name: "Git", subtitle: "Version Control", icon: "git-branch", colorClass: "text-orange-500" },
+          { name: "GitHub", subtitle: "Code Hosting", icon: "github", colorClass: "text-neutral-200" },
+          { name: "VS Code", subtitle: "Code Editor", icon: "code-2", colorClass: "text-blue-500" },
+          { name: "XAMPP", subtitle: "Local Server", icon: "terminal", colorClass: "text-orange-400" },
+          { name: "Render", subtitle: "Deployment", icon: "cloud", colorClass: "text-teal-400" },
+        ],
+      },
+      {
+        label: "Analytics",
+        items: [
+          { name: "Business Analytics", subtitle: "Decision Support", icon: "trending-up", colorClass: "text-primary-light" },
+          { name: "Data Visualization", subtitle: "Insight Reporting", icon: "bar-chart-3", colorClass: "text-accent" },
+          { name: "Predictive Analytics", subtitle: "Demand Forecasting", icon: "line-chart", colorClass: "text-primary-light" },
+          { name: "Chart.js", subtitle: "Data Visualization", icon: "pie-chart", colorClass: "text-pink-400" },
+        ],
+      },
     ],
   },
 ];

@@ -45,6 +45,7 @@
   --animate-blob: blob 14s ease-in-out infinite;
   --animate-glow-pulse: glow-pulse 3.5s ease-in-out infinite;
   --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
 }
 
 @keyframes float {
@@ -86,6 +87,21 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused !important;
   }
 }
 

@@ -1,23 +1,112 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
-  LayoutTemplate,
+  FileCode,
+  Palette,
+  Braces,
+  LayoutGrid,
+  Wind,
+  Flame,
+  Hexagon,
   Server,
   Database,
-  Wrench,
+  Smartphone,
+  Waves,
+  Video,
+  Radio,
+  KeyRound,
+  GitBranch,
+  Code2,
+  Terminal,
+  Cloud,
+  TrendingUp,
   BarChart3,
+  LineChart,
+  PieChart,
 } from "lucide-react";
-import { skillCategories } from "@/lib/data";
-import { Reveal, RevealGroup, RevealItem } from "./Reveal";
+import { techStackGroups, type TechStackItem } from "@/lib/data";
+import { GithubIcon } from "./BrandIcons";
+import { Reveal } from "./Reveal";
 
-const icons = {
-  "layout-template": LayoutTemplate,
+const techIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  "file-code": FileCode,
+  palette: Palette,
+  braces: Braces,
+  "layout-grid": LayoutGrid,
+  wind: Wind,
+  flame: Flame,
+  hexagon: Hexagon,
   server: Server,
   database: Database,
-  wrench: Wrench,
+  smartphone: Smartphone,
+  waves: Waves,
+  video: Video,
+  radio: Radio,
+  "key-round": KeyRound,
+  "git-branch": GitBranch,
+  github: GithubIcon,
+  "code-2": Code2,
+  terminal: Terminal,
+  cloud: Cloud,
+  "trending-up": TrendingUp,
   "bar-chart-3": BarChart3,
+  "line-chart": LineChart,
+  "pie-chart": PieChart,
 };
+
+function TechCard({ item }: { item: TechStackItem }) {
+  const Icon = techIcons[item.icon];
+  return (
+    <div className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-white/[0.03] px-4 py-3 transition-colors duration-300 hover:border-primary/40 hover:bg-white/[0.06]">
+      <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 ${item.colorClass}`}>
+        <Icon size={18} />
+      </span>
+      <div className="leading-tight whitespace-nowrap">
+        <p className="text-sm font-semibold text-white">{item.name}</p>
+        <p className="text-[10px] font-medium uppercase tracking-wider text-text-faint">
+          {item.subtitle}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MarqueeRow({
+  label,
+  items,
+  reverse,
+  duration,
+}: {
+  label: string;
+  items: TechStackItem[];
+  reverse: boolean;
+  duration: number;
+}) {
+  return (
+    <div>
+      <p className="mb-3 pl-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-text-faint">
+        {label}
+      </p>
+      <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+        <div
+          className={`marquee-track flex w-max gap-3 ${reverse ? "animate-marquee-reverse" : "animate-marquee"} hover:[animation-play-state:paused]`}
+          style={{ animationDuration: `${duration}s` }}
+        >
+          {[...items, ...items].map((item, i) => (
+            <TechCard key={`${item.name}-${i}`} item={item} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+let offset = 0;
+const groupRowOffsets = techStackGroups.map((group) => {
+  const start = offset;
+  offset += group.rows.length;
+  return start;
+});
 
 export function TechStack() {
   return (
@@ -38,48 +127,29 @@ export function TechStack() {
           </p>
         </Reveal>
 
-        <RevealGroup
-          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          stagger={0.08}
-        >
-          {skillCategories.map((category) => {
-            const Icon = icons[category.icon as keyof typeof icons];
-            return (
-              <RevealItem key={category.title}>
-                <div className="group relative h-full overflow-hidden rounded-2xl glass p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_24px_48px_-20px_rgba(124,77,255,0.45)]">
-                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                  <div className="relative flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-[0_0_20px_-6px_rgba(124,77,255,0.8)]">
-                      <Icon size={20} />
-                    </span>
-                    <h3 className="font-display text-lg font-bold text-white">{category.title}</h3>
-                  </div>
-
-                  <div className="relative mt-6 space-y-4">
-                    {category.skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="mb-1.5 flex items-center justify-between text-sm">
-                          <span className="font-medium text-text">{skill.name}</span>
-                          <span className="text-xs text-text-faint">{skill.level}%</span>
-                        </div>
-                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/5">
-                          <motion.div
-                            className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </RevealItem>
-            );
-          })}
-        </RevealGroup>
+        <div className="mt-16 space-y-12">
+          {techStackGroups.map((group, gi) => (
+            <Reveal key={group.title} className="space-y-6">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-primary-light">
+                {group.title}
+              </p>
+              <div className="space-y-7">
+                {group.rows.map((row, ri) => {
+                  const i = groupRowOffsets[gi] + ri;
+                  return (
+                    <MarqueeRow
+                      key={row.label}
+                      label={row.label}
+                      items={row.items}
+                      reverse={i % 2 === 1}
+                      duration={26 + i * 6}
+                    />
+                  );
+                })}
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
