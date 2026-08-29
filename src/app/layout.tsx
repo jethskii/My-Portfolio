@@ -3,6 +3,7 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
 import { BootScreen } from "@/components/BootScreen";
+import { NebulaBackground } from "@/components/NebulaBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body className="antialiased bg-bg text-text">
+        <NebulaBackground />
         <BootScreen />
         {children}
       </body>
