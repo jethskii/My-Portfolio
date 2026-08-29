@@ -330,6 +330,7 @@ export const projects: Project[] = [
     gradient: "from-amber-500/25 via-orange-600/20 to-rose-500/20",
     image: withBasePath("/images/SandaliSS.png"),
     screenshots: [withBasePath("/images/SandaliSS.png")],
+    video: { type: "file", src: withBasePath("/videos/Sandalivid.mp4") },
     liveDemo: "https://jethskii.github.io/Sandali/",
     problemSolved:
       "Wanted a lightweight study/review timer that builds habits — streaks, goals, Pomodoro cycling — without ever requiring an account, a server, or a database, and that feels like a retro game HUD instead of a generic productivity app.",
