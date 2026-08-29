@@ -12,6 +12,7 @@ export const site = {
   phone: "0945 730 2942",
   avatar: withBasePath("/images/jethroooo.jpg"),
   qualificationsPortrait: withBasePath("/images/Qualification.png"),
+  resumeUrl: "https://drive.google.com/file/d/18i_QD-arFGC7lMZagb80krc0bJ9RE3Ya/view?usp=drive_link",
 };
 
 export const navLinks = [
